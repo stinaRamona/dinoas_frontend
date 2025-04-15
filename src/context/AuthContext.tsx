@@ -14,13 +14,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     //Logga in funktion med credentials från auth.types.ts
     const login = async (credentials: LoginCred) => {
 
-        if(credentials.email === "" || credentials.password == "") {
+        if(credentials.email === "" || credentials.password === "") {
             console.log("Epost och lösenord måste skickas med"); 
             return; 
         }
 
         try {
-            const response = await fetch("http://localhost:3000//login", {
+            const response = await fetch("http://localhost:3000/loginuser", {
                 method: "POST", 
                 headers: {
                     "Content-Type": "application/json"

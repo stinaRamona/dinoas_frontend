@@ -3,8 +3,8 @@
 export interface User {
     _id: string; 
     user_name: string; 
-    email: string; 
-    password: string; 
+    user_email: string; 
+    user_password: string; 
 }
 
 //De värden som skickas till inloggformulär

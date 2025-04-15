@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 //import av Layout-komponent, som "mall" för samtliga sidor
 import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,11 @@ const router = createBrowserRouter([
 
             {
                 path: "/admin", 
-                element: <AdminPage />
+                element: (
+                    <ProtectedRoute>
+                        <AdminPage />
+                    </ProtectedRoute>
+                )
             }
         ]
 
