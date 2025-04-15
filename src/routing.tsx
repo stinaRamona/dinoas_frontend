@@ -5,6 +5,8 @@ import AboutPage from "./pages/AboutPage";
 import NewsPage from "./pages/NewsPage"; 
 import PortfolioPage from "./pages/PortfolioPage"; 
 import ServicePage from "./pages/ServicePage"; 
+import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
 //import av Layout-komponent, som "mall" för samtliga sidor
 import Layout from "./components/Layout";
 
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
             {
                 path: "/portfolio", 
                 element: <PortfolioPage /> 
+            }, 
+            
+            {
+                path: "/login", 
+                element: <LoginPage />
+            }, 
+
+            {
+                path: "/admin", 
+                element: <AdminPage />
             }
         ]
 
