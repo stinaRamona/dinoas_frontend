@@ -9,8 +9,8 @@ export interface User {
 
 //De värden som skickas till inloggformulär
 export interface LoginCred {
-    email: string; 
-    password: string; 
+    user_email: string; 
+    user_password: string; 
 }
 
 //Värdena somm skickas tillbaka från api:et vid lyckad inloggning

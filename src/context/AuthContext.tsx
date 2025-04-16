@@ -14,7 +14,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     //Logga in funktion med credentials från auth.types.ts
     const login = async (credentials: LoginCred) => {
 
-        if(credentials.email === "" || credentials.password === "") {
+        if(credentials.user_email === "" || credentials.user_password === "") {
             console.log("Epost och lösenord måste skickas med"); 
             return; 
         }
@@ -33,6 +33,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
             }
 
             const data = await response.json() as AuthResponse; 
+
+            console.log(data.user); 
 
             localStorage.setItem("token", data.token); 
 
@@ -61,13 +63,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
             const response = await fetch("http://localhost:3000/protected", {
                 method: "GET", 
                 headers: {
-                    "Content-Type": "application/json", 
+                    "Content-type": "application/json", 
                     "Authorization": "Bearer " + token
                 }
             }); 
 
+            
             if(response.ok) {
-                const data = await response.json(); 
+                const data = await response.json();  
                 setUser(data.user);
             }
 
