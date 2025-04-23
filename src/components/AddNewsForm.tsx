@@ -6,10 +6,10 @@ const AddNewsForm = () => {
         news_title: string, 
         author: string, 
         news_content: string,
-        news_picture: File | null,
+        file: File | null,
     }
     
-    const [newsData, setNewsData] = useState<News>({news_title:"", author: "", news_content:"", news_picture: null}); 
+    const [newsData, setNewsData] = useState<News>({news_title:"", author: "", news_content:"", file: null}); 
     const [info, setInfo] = useState<string []>([]);
 
     const addNews = async (e: any) => { 
@@ -44,16 +44,15 @@ const AddNewsForm = () => {
         newsBody.append("news_title", newsData.news_title);
         newsBody.append("author", newsData.author);
         newsBody.append("news_content", newsData.news_content);
-        newsBody.append("news_picture", e.target.files[0]); 
+        if(newsData.file) {
+            newsBody.append("file", newsData.file); 
+        }
         
         //posta nyhet
         try {
             const response = await fetch("http://localhost:3000/news", {
                 method: "POST", 
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-                body: JSON.stringify(newsBody)
+                body: newsBody,
             });
 
             if(!response.ok) {
@@ -64,6 +63,8 @@ const AddNewsForm = () => {
             console.log(data); 
 
         } catch(error) {
+            setInfo(["Något gick fel vid skapandet av nyheten. Försök igen senare."]);
+            console.log(error); 
             info.push("Något gick fel vid skapandet av nyheten. Försök igen senare."); 
         }
 
@@ -90,7 +91,7 @@ const AddNewsForm = () => {
 
             <label htmlFor="image">Bild:</label><br />
             <input type="file" id="image" name="image" 
-            onChange={(e) => setNewsData({...newsData, news_picture: e.target.files?.[0] || null})}
+            onChange={(e) => setNewsData({...newsData, file: e.target.files?.[0] || null})}
             />
 
             <input type="submit" value="Lägg till"/>
