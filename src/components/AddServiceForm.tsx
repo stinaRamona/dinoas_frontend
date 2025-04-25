@@ -73,6 +73,8 @@ const AddServiceForm = () => {
         <label htmlFor="image">Bild:</label><br />
         <input type="file" name="image" id="image" 
         onChange={(e) => setServiceData({...serviceData, file: e.target.files?.[0] || null})}/>
+
+        <input type="submit" value="Lägg till"/>
     </form> 
 
     {info.length > 0 && info.map((i, index) => <p key={index}>{i}</p>)}
