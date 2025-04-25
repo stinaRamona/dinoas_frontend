@@ -1,4 +1,5 @@
 //hemlig adminsida 
+//behöver tänka på struktur på detta. Kanske flytta logik för att lägga till till handle istället?
 import AddNewsForm from "../components/AddNewsForm"
 import AddPortfolioForm from "../components/AddPortfolioForm";
 import AddServiceForm from "../components/AddServiceForm";
