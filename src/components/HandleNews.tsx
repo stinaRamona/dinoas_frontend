@@ -20,3 +20,5 @@ const HandleNews = () => {
         </>
     )
 }
+
+export default HandleNews;

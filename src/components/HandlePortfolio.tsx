@@ -7,3 +7,4 @@ const HandlePortfolio = () => {
         </>
     )
 }
+export default HandlePortfolio;

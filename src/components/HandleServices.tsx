@@ -7,3 +7,5 @@ const HandleServices = () => {
         </>
     )
 }
+
+export default HandleServices;

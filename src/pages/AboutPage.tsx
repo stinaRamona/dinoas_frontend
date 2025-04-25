@@ -1,4 +1,4 @@
-
+import ContactForm from "../components/Contactform"
 
 function AboutPage() {
 
