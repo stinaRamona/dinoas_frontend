@@ -3,6 +3,7 @@
 import AddNewsForm from "../components/AddNewsForm"
 import AddPortfolioForm from "../components/AddPortfolioForm";
 import AddServiceForm from "../components/AddServiceForm";
+import HandleNews from "../components/HandleNews";
 
 function AdminPage() {
   return (
@@ -10,6 +11,7 @@ function AdminPage() {
       <h1>Skyddad adminsida!</h1>
       <h2>Nyheter</h2>
       <AddNewsForm />
+      <HandleNews />
 
       <h2>Projekt till portfolio</h2>
       <AddPortfolioForm />
