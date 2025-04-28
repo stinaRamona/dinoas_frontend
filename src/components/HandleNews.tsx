@@ -1,9 +1,6 @@
-//För att hantera nyheter (uppdatera och radera)
-//behöver hämta in nyheterna igen från databasen. Återanvända prop på något sätt? 
-//Behöver det för att kunna trycka och få ut id för att kunna radera eller uppdatera. 
-//Kankse borde gjort på annat sätt för att spara på data. Men det här går också bra. Behöver ett formulär för att uppdatera 
-//Behöver knapp för att radera.
-//Annan fråga är navigering. Hur ska man kunna toggla mellan nyheter, tjänster m.m.
+//För att hantera nyheter (uppdatera och radera) 
+//Behöver ett formulär för att uppdatera 
+
 import fetchData from "../hooks/fetchData";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate"; 
@@ -27,11 +24,17 @@ const HandleNews = () => {
 
     const handleDelete = async (id: string) => {
         await deleteNews(id); 
+
+        //hämta in nyheterna igen för att få bort den som raderats
+        await fetchData("http://localhost:3000/news"); 
     }; 
 
     const handleUpdate = async (id: string) => {
         const updatedData = new FormData(); 
         await updateNews(id, updatedData); 
+
+        //hämta in nyheterna igen för att uppdatera innehåll
+        await fetchData("http://localhost:3000/news"); 
     }; 
 
     return (
