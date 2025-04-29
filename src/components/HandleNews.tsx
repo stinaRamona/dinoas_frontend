@@ -6,6 +6,7 @@ import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate"; 
 
 const HandleNews = () => {
+
     interface News {
         _id: string,
         news_title: string, 
@@ -18,10 +19,10 @@ const HandleNews = () => {
     const {data: news, loading} = fetchData("http://localhost:3000/news?refreshKey=" + refreshKey);
     const deleteNews = useDelete("http://localhost:3000/news");
     const updateNews = useUpdate("http://localhost:3000/news");
+    
+    const [selectedNews, setSelectedNews] = useState<News | null>(null); 
+    const [formValues, setFormValues] = useState({title: "", author: "", content: "", image: null}); 
 
-    if (loading) {
-        return <p>Laddar in nyheter...</p> //ändra till en spinner
-    }
 
     const handleDelete = async (id: string) => {
         await deleteNews(id); 
@@ -29,12 +30,48 @@ const HandleNews = () => {
         setRefreshKey((prevKey) => prevKey + 1); 
     }; 
 
-    const handleUpdate = async (id: string) => {
-        const updatedData = new FormData(); 
-        await updateNews(id, updatedData); 
+    const handleUpdateBtnClick = (news: News) => {
+        setSelectedNews(news); 
+        setFormValues({
+            title: news.news_title, 
+            author: news.author, 
+            content: news.news_content, 
+            image: null,
+        });
+    }
 
-        setRefreshKey((prevKey) => prevKey + 1); 
-    }; 
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+
+        setFormValues((prevValues) => ({
+            ...prevValues,
+            [name]: name === "image" ? (e.target.files ? e.target.files[0] : null) : value,
+        }))
+    }
+
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault(); 
+
+        if(!selectedNews) return; 
+
+        const updatedData = new FormData(); 
+        updatedData.append("news_title", formValues.title); 
+        updatedData.append("author", formValues.author); 
+        updatedData.append("news_content", formValues.content); 
+        if(formValues.image) {
+            updatedData.append("file", formValues.image); 
+        }; 
+
+        await updateNews(selectedNews._id, updatedData);
+
+        setRefreshKey((prevKey) => prevKey + 1);
+        setSelectedNews(null);
+        
+    };  
+
+    if (loading) {
+        return <p>Laddar in nyheter...</p> //ändra till en spinner
+    }
 
     return (
         <>
@@ -50,10 +87,37 @@ const HandleNews = () => {
                         <img src={`http://localhost:3000${item.news_picture}`} alt="nyhetsbild" />
                     )}
                     <button onClick={() => handleDelete(item._id)}>Ta bort</button>
-                    <button onClick={() => handleUpdate(item._id)}>Uppdatera</button> 
+                    <button onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button> 
                 </article>
-            ))}
+            ))} 
         </div>
+
+        {/*Formulär för att uppdatera nyhet. Ska synas ifall man klickar på knappen Uppdatera.*/}
+        {selectedNews && (
+            <form id="updateForm" onSubmit={handleFormSubmit}>
+                <h3>Uppdatera nyhet</h3>
+                <label htmlFor="title">Nyhetstitel:</label><br />
+                <input type="text" id="title" name="title" value={formValues.title}
+                onChange={handleFormChange}/><br />
+
+        
+                <label htmlFor="author">Författare:</label><br />
+                <input type="text" id="author" name="author" value={formValues.author}
+                onChange={handleFormChange}/><br />
+        
+                <label htmlFor="content">Inlägg:</label><br />
+                <input type="text" id="content" name="content" value={formValues.content}
+                onChange={handleFormChange}/><br />
+        
+                <label htmlFor="image">Bild:</label><br />
+                <input type="file" id="image" name="image" 
+                onChange={handleFormChange}/><br />
+
+                <button type="submit">Spara ändringar</button>
+                <button onClick={() => setSelectedNews(null)}>Avbryt</button>
+            </form>
+        )}
+
         </>
     )
 }

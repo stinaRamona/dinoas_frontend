@@ -4,10 +4,7 @@ const useUpdate = (endpoint: string) => {
     const updateItem = async (id: string, data: any) => {
         try {
             const response = await fetch(`${endpoint}/${id}`, {
-                method: "PUT", 
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }, 
+                method: "PUT",  
                 body: data
             }); 
             if(!response.ok) {

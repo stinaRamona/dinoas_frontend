@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import fetchData from "../hooks/fetchData";
 
 const AddNewsForm = () => {
