@@ -51,6 +51,9 @@ const AddServiceForm = () => {
             const data = await response.json(); 
             console.log(data); 
 
+            setInfo(["Tjänsten har lagts till"]); 
+            setServiceData({service_name: "", service_description: "", file: null});
+
         } catch(error) {
             setInfo(["Något gick fel vid skapande av tjänsten. Försök igen senare"]);
             console.log(error);

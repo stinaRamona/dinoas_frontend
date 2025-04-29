@@ -1,4 +1,5 @@
 import { useState } from "react"
+import fetchData from "../hooks/fetchData";
 
 const AddNewsForm = () => {
     
@@ -8,7 +9,7 @@ const AddNewsForm = () => {
         news_content: string,
         file: File | null,
     }
-    
+      
     const [newsData, setNewsData] = useState<News>({news_title:"", author: "", news_content:"", file: null}); 
     const [info, setInfo] = useState<string []>([]);
 
@@ -36,7 +37,6 @@ const AddNewsForm = () => {
             setInfo(infos); 
         }
 
-        
         console.log(newsData); 
 
         //göra om till FormData 
@@ -60,7 +60,14 @@ const AddNewsForm = () => {
             }
 
             const data = await response.json();
-            console.log(data); 
+            console.log(data);  
+
+            //fungerar ej, ska hitta en alternativ lösning 
+            //fetchData("http://localhost:3000/news");
+
+            //rensning av forulär vid tilläggning av nyhet
+            setNewsData({news_title:"", author: "", news_content:"", file: null});
+            setInfo(["Nyheten är tillagd!"]); 
 
         } catch(error) {
             setInfo(["Något gick fel vid skapandet av nyheten. Försök igen senare."]);

@@ -1,6 +1,6 @@
 //För att hantera nyheter (uppdatera och radera) 
 //Behöver ett formulär för att uppdatera 
-
+import { useState } from "react";
 import fetchData from "../hooks/fetchData";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate"; 
@@ -14,7 +14,8 @@ const HandleNews = () => {
         news_picture: string, //hur blir det med denna? Behöver jag två för att kunna uppdater (file skickas då)
     }
 
-    const {data: news, loading} = fetchData("http://localhost:3000/news");
+    const [refreshKey, setRefreshKey] = useState(0); //för att hämta innehåll på nytt 
+    const {data: news, loading} = fetchData("http://localhost:3000/news?refreshKey=" + refreshKey);
     const deleteNews = useDelete("http://localhost:3000/news");
     const updateNews = useUpdate("http://localhost:3000/news");
 
@@ -24,17 +25,15 @@ const HandleNews = () => {
 
     const handleDelete = async (id: string) => {
         await deleteNews(id); 
-
-        //hämta in nyheterna igen för att få bort den som raderats
-        await fetchData("http://localhost:3000/news"); 
+        //uppdatera refreshkey för hämta in nyheter igen 
+        setRefreshKey((prevKey) => prevKey + 1); 
     }; 
 
     const handleUpdate = async (id: string) => {
         const updatedData = new FormData(); 
         await updateNews(id, updatedData); 
 
-        //hämta in nyheterna igen för att uppdatera innehåll
-        await fetchData("http://localhost:3000/news"); 
+        setRefreshKey((prevKey) => prevKey + 1); 
     }; 
 
     return (

@@ -49,7 +49,10 @@ const AddPortfolioForm = () => {
             }
 
             const data = await response.json(); 
-            console.log(data); 
+            console.log(data);
+
+            setInfo(["Projektet har lagts till"]); 
+            setPortfolioData({project_name: "", project_description: "", file: null});
 
         } catch(error) {
             setInfo(["Något gick fel vid skapande av projektet. Försök igen senare"]);
