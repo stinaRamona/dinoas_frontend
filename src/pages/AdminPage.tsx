@@ -1,9 +1,8 @@
 //hemlig adminsida 
-import AddNewsForm from "../components/AddNewsForm"
 import AddPortfolioForm from "../components/AddPortfolioForm";
 import AddServiceForm from "../components/AddServiceForm";
-import HandleNews from "../components/HandleNews";
 import { useState } from "react";
+import NewsParent from "../components/NewsParent";
 
 function AdminPage() {
 
@@ -24,8 +23,7 @@ function AdminPage() {
       {
         isVisible === "news" && (
           <>
-              <AddNewsForm />
-              <HandleNews />
+            <NewsParent />
           </>
         )
       }

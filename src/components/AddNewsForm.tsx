@@ -1,7 +1,6 @@
 import { useState } from "react";
-import fetchData from "../hooks/fetchData";
 
-const AddNewsForm = () => {
+const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
     
     interface News {
         news_title: string, 
@@ -62,12 +61,11 @@ const AddNewsForm = () => {
             const data = await response.json();
             console.log(data);  
 
-            //fungerar ej, ska hitta en alternativ lösning 
-            //fetchData("http://localhost:3000/news");
 
             //rensning av forulär vid tilläggning av nyhet
             setNewsData({news_title:"", author: "", news_content:"", file: null});
             setInfo(["Nyheten är tillagd!"]); 
+            onNewsAdded();
 
         } catch(error) {
             setInfo(["Något gick fel vid skapandet av nyheten. Försök igen senare."]);
@@ -80,6 +78,7 @@ const AddNewsForm = () => {
 
     return (
         <>
+        <h3>Lägg till en nyhet</h3>
         <form onSubmit={addNews} encType="multipart/form-data">
             <label htmlFor="title">Nyhetstitel:</label><br />
             <input type="text" name="title" id="title" value={newsData.news_title} 

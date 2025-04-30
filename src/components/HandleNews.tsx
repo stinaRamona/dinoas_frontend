@@ -5,7 +5,7 @@ import fetchData from "../hooks/fetchData";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate"; 
 
-const HandleNews = () => {
+const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refreshItemList : () => void}) => {
 
     interface News {
         _id: string,
@@ -15,8 +15,7 @@ const HandleNews = () => {
         news_picture: string, //hur blir det med denna? Behöver jag två för att kunna uppdater (file skickas då)
     }
 
-    const [refreshKey, setRefreshKey] = useState(0); //för att hämta innehåll på nytt 
-    const {data: news, loading} = fetchData("http://localhost:3000/news?refreshKey=" + refreshKey);
+    const {data: news, loading} = fetchData(`http://localhost:3000/news?refreshKey=${refreshKey}`);
     const deleteNews = useDelete("http://localhost:3000/news");
     const updateNews = useUpdate("http://localhost:3000/news");
     
@@ -26,8 +25,7 @@ const HandleNews = () => {
 
     const handleDelete = async (id: string) => {
         await deleteNews(id); 
-        //uppdatera refreshkey för hämta in nyheter igen 
-        setRefreshKey((prevKey) => prevKey + 1); 
+        refreshItemList(); 
     }; 
 
     const handleUpdateBtnClick = (news: News) => {
@@ -64,8 +62,8 @@ const HandleNews = () => {
 
         await updateNews(selectedNews._id, updatedData);
 
-        setRefreshKey((prevKey) => prevKey + 1);
         setSelectedNews(null);
+        refreshItemList();
         
     };  
 
