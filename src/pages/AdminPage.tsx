@@ -1,8 +1,8 @@
 //hemlig adminsida 
-import AddPortfolioForm from "../components/AddPortfolioForm";
-import AddServiceForm from "../components/AddServiceForm";
 import { useState } from "react";
 import NewsParent from "../components/NewsParent";
+import PortfolioParent from "../components/PortfolioParent";
+import ServiceParent from "../components/ServiceParent";
 
 function AdminPage() {
 
@@ -33,7 +33,7 @@ function AdminPage() {
       {
         isVisible === "portfolio" && (
           <>
-            <AddPortfolioForm />
+            <PortfolioParent />
           </>
         )
       }
@@ -43,7 +43,7 @@ function AdminPage() {
       {
         isVisible === "services" && (
           <>
-            <AddServiceForm />
+            <ServiceParent />
           </>
         )
       }

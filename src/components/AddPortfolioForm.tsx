@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const AddPortfolioForm = () => {
+const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
     interface Portfolio {
         project_name: string, 
         project_description: string, 
@@ -53,7 +53,7 @@ const AddPortfolioForm = () => {
 
             setInfo(["Projektet har lagts till"]); 
             setPortfolioData({project_name: "", project_description: "", file: null});
-
+            onProjectAdded(); 
         } catch(error) {
             setInfo(["Något gick fel vid skapande av projektet. Försök igen senare"]);
             console.log(error);

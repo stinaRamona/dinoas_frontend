@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const AddServiceForm = () => {
+const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
     interface Service {
         service_name: string, 
         service_description: string, 
@@ -53,7 +53,8 @@ const AddServiceForm = () => {
 
             setInfo(["Tjänsten har lagts till"]); 
             setServiceData({service_name: "", service_description: "", file: null});
-
+            onServiceAdded(); 
+            
         } catch(error) {
             setInfo(["Något gick fel vid skapande av tjänsten. Försök igen senare"]);
             console.log(error);
