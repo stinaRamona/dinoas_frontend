@@ -38,7 +38,7 @@
     border-radius: 5px;
     outline: none;
     background-color: #ef6f6c;
-    color: #aaa;
+    color: #FFFCF2;
 }
 
 .inputWrapper label {
@@ -70,7 +70,7 @@
     border-radius: 5px;
     outline: none;
     background-color: #ef6f6c;
-    color: #aaa;
+    color: #FFFCF2;
     resize: vertical; 
     min-height: 100px; 
 }
