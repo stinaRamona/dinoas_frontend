@@ -40,11 +40,10 @@ const GetPortfolio = () => {
     return (
         <>
         <div id="newsContainer">
-            <h2>Nyheter just nu</h2>
             {
                 projectData.map((project, index) => (
                     <article key={index} className="newsItem">
-                        <h3>{project.project_name}</h3>
+                        <h2>{project.project_name}</h2>
                         <p>{project.project_description}</p>
                         {project.project_picture && (
                             <img src={`http://localhost:3000${project.project_picture}`} alt="projektbild" />

@@ -1,0 +1,106 @@
+#contactFormWrapper {
+    background-color: #ef6f6c;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em; 
+}
+
+#contatHeadeing {
+    max-width: 30%;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFCF2;
+}
+
+#oasGreen {
+    color: #426A5A; 
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*Animation formulär*/
+.formRow {
+    display: flex;
+    gap: 3rem; 
+    margin-bottom: 1.5rem;
+}
+
+.inputWrapper {
+    flex: 1; 
+    position: relative;
+}
+
+.inputWrapper input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ef6f6c;
+    color: #aaa;
+}
+
+.inputWrapper label {
+    position: absolute;
+    top: 50%;
+    left: 1em; 
+    transform: translateY(-50%);
+    background-color: #ef6f6c;
+    padding: 0 0.2em;
+    font-size: 1rem;
+    color: #f2cb79;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.inputWrapper input:focus + label,
+.inputWrapper input:not(:placeholder-shown) + label {
+    top: -0.8rem;
+    left: 1rem;
+    font-size: 0.875rem;
+    color: #FFC857;
+}
+
+.inputWrapper textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ef6f6c;
+    color: #aaa;
+    resize: vertical; 
+    min-height: 100px; 
+}
+
+.inputWrapper textarea:focus + label,
+.inputWrapper textarea:not(:placeholder-shown) + label {
+    top: -0.8rem;
+    left: 1rem;
+    font-size: 0.875rem;
+    color: #FFC857;
+}
+
+form textarea {
+    width: 100%
+}
+
+/*Knapp för inskick*/
+form input[type="submit"] {
+    background-color: #FFC857;
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #e6b24a;
+    cursor: pointer;
+    transition: .5s;
+}

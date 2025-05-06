@@ -41,11 +41,10 @@ const GetNews = () => {
     return (
         <>
         <div id="newsContainer">
-            <h2>Nyheter just nu</h2>
             {
                 newsData.map((news, index) => (
                     <article key={index} className="newsItem">
-                        <h3>{news.news_title}</h3>
+                        <h2>{news.news_title}</h2>
                         <p>{news.author}</p>
                         <p>{news.news_content}</p>
                         {news.news_picture && (

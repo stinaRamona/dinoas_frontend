@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import emailjs from '@emailjs/browser';
-
+import "../css/ContactForm.css"; 
 
 const ContactForm = () => {
     const form = useRef<HTMLFormElement | null>(null);
@@ -29,23 +29,44 @@ const ContactForm = () => {
   return (
     <>
     <div id="contactFormWrapper">
-        <h1>Din nya <span id="oasGreen">oas</span> börjar med ett klick</h1>
+        <h1 id="contatHeadeing">Din nya <span id="oasGreen">oas</span> börjar med ett klick</h1>
 
         <form onSubmit={sendEmail} ref={form}>
-            <label htmlFor="firstName">Förnamn:</label><br />
-            <input type="text" id="firstName" name="firstName" required /><br />
+            <h2>Kontakta oss</h2>
+            <div className="formRow">
+              <div className="inputWrapper">
+                <input type="text" id="firstName" name="firstName" required placeholder=" "/>
+                <label htmlFor="firstName">Förnamn</label>
+                <div className="cover"></div>
+              </div>
 
-            <label htmlFor="lastName">Efternamn:</label><br />
-            <input type="text" id="lastName" name="lastName" required/><br />
+              <div className="inputWrapper">
+                <input type="text" id="lastName" name="lastName" required placeholder=" "/>
+                <label htmlFor="lastName">Efternamn</label>
+                <div className="cover"></div>
+              </div>
 
-            <label htmlFor="email">Epost:</label><br />
-            <input type="email" id="email" name="email" required/><br />
+            </div>
 
-            <label htmlFor="phone">Telefon:</label><br />
-            <input type="tel" id="phone" name="phone" /><br />
+            <div className="formRow">
+              <div className="inputWrapper">
+                <input type="email" id="email" name="email" required placeholder=" "/>
+                <label htmlFor="email">E-post</label><br />
+                <div className="cover"></div>
+              </div>
 
-            <label htmlFor="message">Meddelande:</label><br />
-            <textarea name="message" id="message"></textarea><br />
+              <div className="inputWrapper">
+                <input type="tel" id="phone" name="phone" placeholder=" "/>
+                <label htmlFor="phone">Telefon</label>
+                <div className="cover"></div>
+              </div>
+            </div>
+
+            <div className="inputWrapper">
+              <textarea name="message" id="message" placeholder=" "></textarea>
+              <label htmlFor="message">Meddelande</label>
+              <div className="cover"></div>
+            </div>
 
             <input type="submit" value="Let's connect!"/>
         </form>

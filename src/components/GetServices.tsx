@@ -40,11 +40,10 @@ const GetServices = () => {
     return (
         <>
         <div id="newsContainer">
-            <h2>Nyheter just nu</h2>
             {
                 serviceData.map((service, index) => (
                     <article key={index} className="newsItem">
-                        <h3>{service.service_name}</h3>
+                        <h2>{service.service_name}</h2>
                         <p>{service.service_description}</p>
                         {service.service_picture && (
                             <img src={`http://localhost:3000${service.service_picture}`} alt="nyhetsbild" />
