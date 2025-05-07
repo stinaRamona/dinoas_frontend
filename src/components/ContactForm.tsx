@@ -35,7 +35,7 @@ const ContactForm = () => {
   return (
     <>
     <div id="contactFormWrapper">
-        <h1 id="contatHeadeing">Din nya <span id="oasGreen">oas</span> börjar med ett klick</h1>
+        <h1 id="contatHeadeing">Din nya <span id="oasGreen">oas</span> <br />börjar med ett <em>klick</em></h1>
 
         <form onSubmit={sendEmail} ref={form}>
             <h2>Kontakta oss</h2>

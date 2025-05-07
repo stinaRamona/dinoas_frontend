@@ -2,7 +2,6 @@ footer {
     background-color: #426a5a; 
     padding: 0.5%; 
     color: #fffcf2; 
-    margin-top: 2em;
     display: flex;
     flex-direction: row;  
     justify-content: space-around;

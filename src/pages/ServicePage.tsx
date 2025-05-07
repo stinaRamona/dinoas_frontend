@@ -3,9 +3,12 @@ import GetServices from "../components/GetServices"
 function ServicePage() {
   return (
     <div>
-      <h1>Våra tjänster</h1>
+      <main>
+        <h1>Våra tjänster</h1>
 
-      <GetServices />
+        <GetServices />
+      </main>
+
     </div>
   )
 }

@@ -3,8 +3,11 @@ import GetNews from '../components/GetNews';
 function NewsPage() {
   return (
     <div>
-      <h1>Nyhetssidan</h1>
-      <GetNews />
+      <main>
+        <h1>Nyhetssidan</h1>
+        <GetNews />
+      </main>
+
     </div>
   )
 }

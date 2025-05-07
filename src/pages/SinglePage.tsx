@@ -4,7 +4,9 @@
 function SinglePage() {
   return (
     <div>
-      
+      <main>
+        Enskild sida för nyhet, tjänst eller projekt
+      </main>
     </div>
   )
 }

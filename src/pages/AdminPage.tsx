@@ -16,37 +16,40 @@ function AdminPage() {
 
   return (
     <div>
-      <h1>Skyddad adminsida!</h1>
-      <p>Tryck på den kategori som du vill hantera</p>
+      <main>
+        <h1>Skyddad adminsida!</h1>
+        <p>Tryck på den kategori som du vill hantera</p>
 
-      <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
-      {
-        isVisible === "news" && (
-          <>
-            <NewsParent />
-          </>
-        )
-      }
+        <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
+        {
+          isVisible === "news" && (
+            <>
+              <NewsParent />
+            </>
+          )
+        }
 
 
-      <h2 onClick={() => toggleVisibility("portfolio")} style={{cursor: "pointer"}}>Projekt till portfolio</h2>
-      {
-        isVisible === "portfolio" && (
-          <>
-            <PortfolioParent />
-          </>
-        )
-      }
-      
+        <h2 onClick={() => toggleVisibility("portfolio")} style={{cursor: "pointer"}}>Projekt till portfolio</h2>
+        {
+          isVisible === "portfolio" && (
+            <>
+              <PortfolioParent />
+            </>
+          )
+        }
+        
 
-      <h2 onClick={() => toggleVisibility("services")} style={{cursor: "pointer"}}>Tjänster</h2>
-      {
-        isVisible === "services" && (
-          <>
-            <ServiceParent />
-          </>
-        )
-      }
+        <h2 onClick={() => toggleVisibility("services")} style={{cursor: "pointer"}}>Tjänster</h2>
+        {
+          isVisible === "services" && (
+            <>
+              <ServiceParent />
+            </>
+          )
+        }
+      </main>
+
     </div>
   )
 }

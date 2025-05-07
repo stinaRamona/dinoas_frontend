@@ -43,16 +43,17 @@ const GetNews = () => {
         <>
         <div id="gridContainer">
             {
-                newsData.map((news, index) => (
-                    <article key={index} className="gridItem">
-                        {news.news_picture && (
-                            <img src={`http://localhost:3000${news.news_picture}`} alt="nyhetsbild" />
-                        )}
-                        <h3>{news.news_title}</h3>
-                        <em>Av {news.author}</em>
-                        <p>{news.news_content}</p>
-                    </article>
-                ))
+            //visar tre nyheter på startsidan och alla nyheter på nyhetssidan
+            newsData.slice(0, window.location.pathname === "/" ? 3 : newsData.length).map((news, index) => (
+                <article key={index} className="gridItem">
+                {news.news_picture && (
+                    <img src={`http://localhost:3000${news.news_picture}`} alt="nyhetsbild" />
+                )}
+                <h3>{news.news_title}</h3>
+                <em>Av {news.author}</em>
+                <p>{news.news_content}</p>
+                </article>
+            ))
             }
             
             {info.length > 0 && info.map((i, index) => <p key={index}>{i}</p>)}

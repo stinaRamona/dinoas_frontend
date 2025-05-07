@@ -19,14 +19,20 @@ function AboutPage() {
 
   return (
     <div>
+      <main>
         <h1>Om oss</h1>
         <p>Lite text hihihihihih Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ipsam animi ut quas doloremque, alias illum enim, tenetur doloribus minus impedit amet consequuntur neque veritatis est cum, distinctio id facere.</p>
-        <BannerQuote />
+      </main>    
+
+      <BannerQuote />
+      <main>
         <h2>Vårat gäng</h2>
         <p>Dom som jobbar på företaget! Med ord och bild</p>
-        <div id="contactForm">
-          <ContactForm/>
-        </div>
+      </main>
+
+      <div id="contactForm">
+        <ContactForm/>
+      </div>
         
     </div>
   )
