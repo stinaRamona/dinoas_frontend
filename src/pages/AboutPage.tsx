@@ -1,5 +1,6 @@
-import ContactForm from "../components/ContactForm"
+import ContactForm from "../components/ContactForm";
 import BannerQuote from "../components/BannerQuote";
+import Employees from "../components/Employees";;
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -25,14 +26,20 @@ function AboutPage() {
       </main>    
 
       <BannerQuote />
+
       <main>
-        <h2>Vårat gäng</h2>
-        <p>Dom som jobbar på företaget! Med ord och bild</p>
+        <Employees />
       </main>
 
       <div id="contactForm">
         <ContactForm/>
       </div>
+
+      <style>{`
+        h1 {
+            text-align: center;
+        }
+      `}</style>
         
     </div>
   )
