@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import emailjs from '@emailjs/browser';
 import "../css/ContactForm.css"; 
+import { useState } from "react";
 
 const ContactForm = () => {
+    const [info, setInfo] = useState<String>(""); 
     const form = useRef<HTMLFormElement | null>(null);
 
     const sendEmail = (e: any) => {
@@ -16,14 +18,18 @@ const ContactForm = () => {
           .then(
             () => {
               console.log('Mail skickat!');
+              setInfo("Ditt meddelande har skickats! Du får snart en bekräftelse på angiven e-postadress");
             },
             (error) => {
               console.log('Något gick fel...', error.text);
+              setInfo("Något gick fel, försök igen senare.");
             },
           );
         } else {
           console.error('Form reference is null.');
         }
+
+        form.current?.reset(); //Återställer formuläret efter att det skickats
     };
 
   return (
@@ -68,7 +74,10 @@ const ContactForm = () => {
               <div className="cover"></div>
             </div>
 
-            <input type="submit" value="Let's connect!"/>
+            <input type="submit" value="Let's connect!"/><br /><br />
+
+            {/* Ifall något meddelande finns så visas det här */}
+            {info && <em id="infoMsg">{info}</em>}  
         </form>
     </div>
     </>

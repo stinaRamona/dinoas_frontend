@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useEffect } from "react";
+import "../css/AltTwoColumnLayout.css"; 
 
 const GetPortfolio = () => {
 
@@ -39,15 +40,20 @@ const GetPortfolio = () => {
     }, []); 
     return (
         <>
-        <div id="newsContainer">
+        <div id="projectContainer">
             {
                 projectData.map((project, index) => (
-                    <article key={index} className="newsItem">
-                        <h2>{project.project_name}</h2>
-                        <p>{project.project_description}</p>
-                        {project.project_picture && (
-                            <img src={`http://localhost:3000${project.project_picture}`} alt="projektbild" />
-                        )}
+                    <article key={index} className="projectItem">
+                        <div className="projectText">
+                            <h2>{project.project_name}</h2>
+                            <p>{project.project_description}</p>
+                        </div>
+
+                        <div className="projectImg">
+                            {project.project_picture && (
+                                <img src={`http://localhost:3000${project.project_picture}`} alt="projektbild" />
+                            )}
+                        </div>
                     </article>
                 ))
             }

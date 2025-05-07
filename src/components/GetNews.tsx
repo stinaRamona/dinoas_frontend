@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useEffect } from "react";
+import "../css/TheeGridLayot.css";
 
 const GetNews = () => {
 
@@ -40,16 +41,16 @@ const GetNews = () => {
     }, []); 
     return (
         <>
-        <div id="newsContainer">
+        <div id="gridContainer">
             {
                 newsData.map((news, index) => (
-                    <article key={index} className="newsItem">
-                        <h2>{news.news_title}</h2>
-                        <p>{news.author}</p>
-                        <p>{news.news_content}</p>
+                    <article key={index} className="gridItem">
                         {news.news_picture && (
                             <img src={`http://localhost:3000${news.news_picture}`} alt="nyhetsbild" />
                         )}
+                        <h3>{news.news_title}</h3>
+                        <em>Av {news.author}</em>
+                        <p>{news.news_content}</p>
                     </article>
                 ))
             }

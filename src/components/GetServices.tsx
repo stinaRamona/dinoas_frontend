@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react";
+import "../css/TheeGridLayot.css";
 
 const GetServices = () => {
 
@@ -39,15 +40,15 @@ const GetServices = () => {
     }, []); 
     return (
         <>
-        <div id="newsContainer">
+        <div id="gridContainer">
             {
                 serviceData.map((service, index) => (
-                    <article key={index} className="newsItem">
-                        <h2>{service.service_name}</h2>
-                        <p>{service.service_description}</p>
+                    <article key={index} className="gridItem">
                         {service.service_picture && (
                             <img src={`http://localhost:3000${service.service_picture}`} alt="nyhetsbild" />
                         )}
+                        <h3>{service.service_name}</h3>
+                        <p>{service.service_description}</p>
                     </article>
                 ))
             }

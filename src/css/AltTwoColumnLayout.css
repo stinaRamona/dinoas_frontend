@@ -1,0 +1,33 @@
+/*Alternerar mellan bild och text i två kolumner med :nth-child*/
+
+#projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+}
+
+.projectItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.projectItem:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.projectText {
+    flex: 1;
+}
+
+.projectImg {
+    flex: 1;
+}
+
+.projectImg img {
+    width: 100%;
+    height: auto;
+}

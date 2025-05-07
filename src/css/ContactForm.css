@@ -104,3 +104,11 @@ form input[type="submit"]:hover {
     cursor: pointer;
     transition: .5s;
 }
+
+/*För infomeddelande*/
+#infoMsg {
+    font-weight: bold;
+    color:#FFFCF2; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
