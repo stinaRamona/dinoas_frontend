@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import "../css/AltTwoColumnLayout.css"; 
+import "../css/AltTwoColumnLayout.css";
+import { useNavigate } from "react-router-dom"; 
 
 const GetPortfolio = () => {
 
     interface Portfolio {
+        _id: string,
         project_name: string, 
         project_description: string, 
         project_picture: string,
     }
 
-    const [projectData, setProjectData] = useState<Portfolio[]>([{project_name:"", project_description:"", project_picture: ""}]); 
+    const navigate = useNavigate(); 
+    const [projectData, setProjectData] = useState<Portfolio[]>([{_id: "", project_name:"", project_description:"", project_picture: ""}]); 
     const [info, setInfo] = useState<string[]>([]); 
 
     const getProjects = async () => {
@@ -35,16 +38,21 @@ const GetPortfolio = () => {
         }
     }
 
+    const goToSingleProject = (id: string) => {
+        navigate("/project/" + id);
+    };
+
     useEffect(() => {
         getProjects(); 
     }, []); 
+
     return (
         <>
         <div id="projectContainer">
             {
                 projectData.map((project, index) => (
                     <article key={index} className="projectItem">
-                        <div className="projectText">
+                        <div className="projectText" onClick={() => goToSingleProject(project._id)}>
                             <h2>{project.project_name}</h2>
                             <p>{project.project_description}</p>
                         </div>

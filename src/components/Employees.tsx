@@ -13,7 +13,7 @@ const Employees = () => {
         <article className="employeeCard">
             <img src={emp1} alt="Antälld" className="empImg"/>
             <p>Namn Namnsson</p>
-            <em>Projektledare</em>
+            <em>Projektledare och administratör</em>
         </article>
 
         <article className="employeeCard">

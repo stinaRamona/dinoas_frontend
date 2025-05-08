@@ -7,6 +7,9 @@ import PortfolioPage from "./pages/PortfolioPage";
 import ServicePage from "./pages/ServicePage"; 
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
+import NewsSingle from "./pages/NewsSingle"; 
+import PortfolioSingle from "./pages/PortfolioSingle";
+import ServiceSingle from "./pages/ServiceSingle"; 
 //import av Layout-komponent, som "mall" för samtliga sidor
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -40,6 +43,23 @@ const router = createBrowserRouter([
                 path: "/portfolio", 
                 element: <PortfolioPage /> 
             }, 
+
+            //enskild sida för nyhet, tjänst och portfolio
+
+            {
+                path: "/news/:id", 
+                element: <NewsSingle />
+            },
+
+            {
+                path: "/project/:id", 
+                element: <PortfolioSingle />
+            },
+
+            {
+                path: "/service/:id", 
+                element: <ServiceSingle />
+            },
             
             {
                 path: "/login", 

@@ -3,4 +3,20 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
     padding: 10px;
+} 
+
+.gridItem:hover {
+    background-color: #fdf5dbbd;
+    cursor: pointer;
+}
+
+
+#gridContainer .gridItem img {
+    max-width: 100%; 
+    width: 100%;
+    margin: 0 auto; 
+    height: 200px;
+    max-height: 100%;
+    margin: 0 auto; 
+    vertical-align: middle;
 }

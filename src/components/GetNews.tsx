@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "../css/TheeGridLayot.css";
+import placeholder from "../assets/temp-placeholder.jpg";
+import { useNavigate } from "react-router-dom";
 
 const GetNews = () => {
 
+    const navigate = useNavigate(); 
+
     interface News {
+        _id: string,
         news_title: string,
         author: string,
         news_content: string,
         news_picture: string,
     }
 
-    const [newsData, setNewsData] = useState<News[]>([{news_title:"", author:"", news_content:"", news_picture: ""}]); 
+    const [newsData, setNewsData] = useState<News[]>([{_id: "", news_title:"", author:"", news_content:"", news_picture: ""}]); 
     const [info, setInfo] = useState<string[]>([]); 
 
     const getNews = async () => {
@@ -36,6 +41,10 @@ const GetNews = () => {
         }
     }
 
+    const goToSingle = (id:string) => {
+        navigate("/news/" + id); 
+    }
+
     useEffect(() => {
         getNews(); 
     }, []); 
@@ -45,9 +54,11 @@ const GetNews = () => {
             {
             //visar tre nyheter på startsidan och alla nyheter på nyhetssidan
             newsData.slice(0, window.location.pathname === "/" ? 3 : newsData.length).map((news, index) => (
-                <article key={index} className="gridItem">
-                {news.news_picture && (
+                <article key={index} className="gridItem" onClick={() => goToSingle(news._id)}>
+                {news.news_picture ? (
                     <img src={`http://localhost:3000${news.news_picture}`} alt="nyhetsbild" />
+                ) : (
+                    <img src={placeholder} alt="placeholder image"/>
                 )}
                 <h3>{news.news_title}</h3>
                 <em>Av {news.author}</em>

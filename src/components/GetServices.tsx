@@ -1,16 +1,19 @@
 import { useState } from "react"
 import { useEffect } from "react";
 import "../css/TheeGridLayot.css";
+import { useNavigate } from "react-router-dom";
 
 const GetServices = () => {
 
     interface Service {
+        _id: string, 
         service_name: string, 
         service_description: string, 
         service_picture: string, 
     }
 
-    const [serviceData, setServiceData] = useState<Service[]>([{service_name:"", service_description:"", service_picture: ""}]); 
+    const navigate = useNavigate(); 
+    const [serviceData, setServiceData] = useState<Service[]>([{_id: "", service_name:"", service_description:"", service_picture: ""}]); 
     const [info, setInfo] = useState<string[]>([]); 
 
     const getService = async () => {
@@ -34,6 +37,10 @@ const GetServices = () => {
             console.log(error); 
         }
     }
+    
+    const goToSinglePage = (id: string) => {
+        navigate("/service/" + id); 
+    }
 
     useEffect(() => {
         getService(); 
@@ -43,7 +50,7 @@ const GetServices = () => {
         <div id="gridContainer">
             {
                 serviceData.map((service, index) => (
-                    <article key={index} className="gridItem">
+                    <article key={index} className="gridItem" onClick={() => goToSinglePage(service._id)}>
                         {service.service_picture && (
                             <img src={`http://localhost:3000${service.service_picture}`} alt="nyhetsbild" />
                         )}
