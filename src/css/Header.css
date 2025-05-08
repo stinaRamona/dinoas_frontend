@@ -63,3 +63,22 @@ img {
     height: auto;
     padding:1%;  
 }
+
+/*Logga ut knapp*/
+#logOutBtn {
+    margin-right: 2em; 
+    background-color: #FFC857;
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+#logOutBtn:hover {
+    background-color: #e6b24a;
+    cursor: pointer;
+    transition: .5s;
+}

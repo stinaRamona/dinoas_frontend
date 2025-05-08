@@ -73,7 +73,7 @@ const ContactForm = () => {
               <label htmlFor="message">Meddelande</label>
               <div className="cover"></div>
             </div>
-
+            <br />
             <input type="submit" value="Let's connect!"/><br /><br />
 
             {/* Ifall något meddelande finns så visas det här */}
