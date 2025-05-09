@@ -4,7 +4,7 @@ function PortfolioPage() {
   return (
     <div>
       <main>
-        <h1>Portfolio</h1>
+        <h1 style={{textAlign: "center"}}>Portfolio</h1>
 
         <GetPortfolio />
       </main>

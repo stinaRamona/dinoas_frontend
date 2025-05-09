@@ -21,7 +21,7 @@ function AboutPage() {
   return (
     <div>
       <main>
-        <h1>Om oss</h1>
+        <h1 style={{textAlign: "center"}}>Om oss</h1>
         <p>Lite text hihihihihih Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ipsam animi ut quas doloremque, alias illum enim, tenetur doloribus minus impedit amet consequuntur neque veritatis est cum, distinctio id facere.</p>
       </main>    
 

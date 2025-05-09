@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import placeholder from "../assets/temp-placeholder.jpg";
-
+import "../css/SinglePageStyle.css";
 
 const PortfolioSingle = () => {
 
@@ -47,15 +47,17 @@ const PortfolioSingle = () => {
     return (
         <>
         <main>
-            <h1>{portfolioInfo.project_name}</h1>
+          <div id="singleArticleContainer">
             {
-            portfolioInfo.project_picture ? (
-                <img src={`http://localhost:3000${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
-            ) : (
-                <img src={placeholder} alt="placeholder" />
-            )
+              portfolioInfo.project_picture ? (
+                  <img src={`http://localhost:3000${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
+              ) : (
+                  <img src={placeholder} alt="placeholder" />
+              )
             }
-            <article>{portfolioInfo.project_description}</article>
+            <h1>{portfolioInfo.project_name}</h1>
+            <article id="singleItemContent">{portfolioInfo.project_description}</article>
+          </div>
 
     </main>
         </>

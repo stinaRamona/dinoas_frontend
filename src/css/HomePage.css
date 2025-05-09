@@ -1,0 +1,16 @@
+#home-infoContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    padding: 10px;
+    padding-top: 200px; 
+
+} 
+
+#textContainer {
+
+}
+
+#imgContainer {
+
+}

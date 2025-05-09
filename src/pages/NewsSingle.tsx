@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import placeholder from "../assets/temp-placeholder.jpg";
+import "../css/SinglePageStyle.css"; 
 //hur ska jag göra för att den ska veta om det är en tjänst, en nyhet eller ett projekt??
 
 function NewsSingle() {
@@ -49,17 +50,18 @@ function NewsSingle() {
   return (
     <>
       <main>
-        <h1>{newsInfo.news_title}</h1>
-        {
-          newsInfo.news_picture ? (
-            <img src={`http://localhost:3000${newsInfo.news_picture}`} alt="nyhetsbild"/>
-          ) : (
-            <img src={placeholder} alt="placeholder" />
-          )
-        }
-        <em>Av: {newsInfo.author}</em>
-        <article>{newsInfo.news_content}</article>
-
+        <div id="singleArticleContainer">
+          {
+            newsInfo.news_picture ? (
+              <img src={`http://localhost:3000${newsInfo.news_picture}`} alt="nyhetsbild"/>
+            ) : (
+              <img src={placeholder} alt="placeholder" />
+            )
+          }
+          <h1>{newsInfo.news_title}</h1>
+          <em>Av: {newsInfo.author}</em>
+          <article id="singleItemContent">{newsInfo.news_content}</article>
+          </div>
       </main>
     </>
   )

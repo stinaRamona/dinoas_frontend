@@ -4,7 +4,7 @@ function NewsPage() {
   return (
     <div>
       <main>
-        <h1>Nyhetssidan</h1>
+        <h1 style={{textAlign: "center"}}>Nyheter</h1>
         <GetNews />
       </main>
 

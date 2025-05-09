@@ -1,9 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Wave from "../assets/mörkgrönWave.svg"; 
 import "../css/Header.css"; 
 import { useAuth } from "../context/AuthContext";
+import headerImg from "../assets/header_img_smaller.jpg"; 
 
 function Header() {
+    const location = useLocation();
 
     const {user, logout} = useAuth(); 
 
@@ -29,6 +31,13 @@ function Header() {
             }
         </header>
         <img src={Wave} alt="mörkgrön våg" id="headerWave" />
+        {
+            location.pathname === "/" && 
+            <div id="headerImgWrapper">
+                <img id="headerImg" src={headerImg} alt="Blomster som täcker skärmen" />
+            </div>
+        }
+
         </>
     )
 }

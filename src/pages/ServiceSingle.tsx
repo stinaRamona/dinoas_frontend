@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import placeholder from "../assets/temp-placeholder.jpg";
+import "../css/SinglePageStyle.css"; 
 
 const ServiceSingle = () => {
 
@@ -46,16 +47,18 @@ const ServiceSingle = () => {
   return (
     <>
     <main>
+      <div id="singleArticleContainer">
+          {
+            serviceInfo.service_picture ? (
+              <img src={`http://localhost:3000${serviceInfo.service_picture}`} alt="nyhetsbild"/>
+            ) : (
+              <img src={placeholder} alt="placeholder" />
+            )
+          }
         <h1>{serviceInfo.service_name}</h1>
-        {
-          serviceInfo.service_picture ? (
-            <img src={`http://localhost:3000${serviceInfo.service_picture}`} alt="nyhetsbild"/>
-          ) : (
-            <img src={placeholder} alt="placeholder" />
-          )
-        }
-        <article>{serviceInfo.service_description}</article>
+        <article id="singleItemContent">{serviceInfo.service_description}</article>
 
+      </div>
     </main>
     </>
   )

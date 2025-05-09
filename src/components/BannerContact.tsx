@@ -12,7 +12,7 @@ const BannerContact = () => {
     return (
         <>
         <div id="bannerContainer">
-            <p id="bannerText">Att skapa en oas börjar med ett klick</p>
+            <h2>Att skapa en oas börjar med ett klick</h2>
             <button id="contactBtn" onClick={toContactPage}>Kontakta oss</button>
         </div>
         </>

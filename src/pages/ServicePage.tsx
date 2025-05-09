@@ -4,7 +4,7 @@ function ServicePage() {
   return (
     <div>
       <main>
-        <h1>Våra tjänster</h1>
+        <h1 style={{textAlign: "center"}}>Våra tjänster</h1>
 
         <GetServices />
       </main>

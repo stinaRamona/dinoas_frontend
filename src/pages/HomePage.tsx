@@ -1,19 +1,28 @@
 import BannerContact from "../components/BannerContact"
 import GetNews from "../components/GetNews"; 
+import homePic from "../assets/plant_and_face.jpg"; 
+import "../css/HomePage.css"; 
 
 function HomePage() {
   return (
     <div>
       <main>
-          <h1>Startsidan</h1>
+          <div id="home-infoContainer">
+            <div id="textContainer">
+              <h1>Nej, det är ingen hägring</h1>
+                <p>
+                  Brödtext. Lorem ipsum dolor sit amet, 
+                  consectetur adipisicing elit. Consequatur alias 
+                  architecto quaerat officia beatae ducimus velit doloribus 
+                  fugit error! Itaque sapiente non illum consequatur nostrum 
+                  commodi consequuntur vel, iste corrupti.
+                </p>
+            </div>
+          <div id="imgContainer">
+            <img src={homePic} alt="En bild på en upphållen planta med en person i bakgrunden"/>
+          </div>
+          </div>
 
-          <h2>H2 rubrik</h2>
-          <p>Brödtext Lorem ipsum dolor sit amet, 
-          consectetur adipisicing elit. Consequatur alias 
-          architecto quaerat officia beatae ducimus velit doloribus 
-          fugit error! Itaque sapiente non illum consequatur nostrum 
-          commodi consequuntur vel, iste corrupti.
-          </p>
       </main>
 
 

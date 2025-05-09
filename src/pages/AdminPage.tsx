@@ -17,7 +17,7 @@ function AdminPage() {
   return (
     <div>
       <main>
-        <h1>Skyddad adminsida!</h1>
+        <h1>Adminsidan</h1>
         <p>Tryck på den kategori som du vill hantera</p>
 
         <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
