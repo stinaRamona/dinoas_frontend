@@ -1,0 +1,75 @@
+#deleteBtn {
+    margin-right: 2em; 
+    background-color: #ef6f6c;
+    color: #fffcf2; 
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+#deleteBtn:hover {
+    cursor: pointer;
+    background-color: #cf5d5b;
+    transition: .5; 
+}
+
+#updateBtn {
+    margin-right: 2em; 
+    background-color: #FFC857;
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+#updateBtn:hover {
+    background-color: #e6b24a;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#cancelBtn {
+    margin-right: 2em; 
+    background-color: #ef6f6c;
+    color: #fffcf2; 
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+} 
+
+#cancelBtn:hover {
+    cursor: pointer;
+    background-color: #cf5d5b;
+    transition: .5; 
+}
+
+#saveBtn {
+    margin-right: 2em; 
+    background-color: #426A5A;
+    color: #fffcf2; 
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+    margin-bottom: 1em;
+} 
+
+#saveBtn:hover {
+    cursor: pointer;
+    background-color: #2f4d41; 
+    transition: .5s; 
+}

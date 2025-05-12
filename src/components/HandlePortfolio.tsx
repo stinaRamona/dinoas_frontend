@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate";
 import fetchData from "../hooks/fetchData";
+import "../css/HandleItemStyle.css"; 
+import "../css/GeneralFormStyle.css"; 
 
 const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; refreshItemList : () => void}) => {
     
@@ -83,15 +85,15 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
                     {item.project_picture && (
                         <img src={`http://localhost:3000${item.project_picture}`} alt="projektbild" />
                     )}
-                    <button onClick={() => handleDelete(item._id)}>Ta bort</button>
-                    <button onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>
+                    <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
+                    <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>
                 </article>
             ))
             }
         </div>
 
         {selectedProject && (
-            <form id="updateForm" onSubmit={handleFormSubmit}>
+            <form id="generalForm" onSubmit={handleFormSubmit}>
                 <h3>Uppdatera projekt</h3>
                 <label htmlFor="title">Projekttitel:</label><br />
                 <input type="text" id="title" name="title" value={formValues.title}
@@ -105,8 +107,8 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
                 <input type="file" id="image" name="image"
                 onChange={handleFormChange} /><br />
                 
-                <button type="submit">Spara ändringar</button>
-                <button onClick={() => setSelectedProject(null)}>Avbryt</button>
+                <button id="saveBtn" type="submit">Spara ändringar</button>
+                <button id="cancelBtn" onClick={() => setSelectedProject(null)}>Avbryt</button>
             </form>
         )}
         </>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import fetchData from "../hooks/fetchData";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate"; 
+import "../css/HandleItemStyle.css"; 
+import "../css/GeneralFormStyle.css"; 
 
 const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refreshItemList : () => void}) => {
 
@@ -84,15 +86,15 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
                     {item.news_picture && (
                         <img src={`http://localhost:3000${item.news_picture}`} alt="nyhetsbild" />
                     )}
-                    <button onClick={() => handleDelete(item._id)}>Ta bort</button>
-                    <button onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button> 
+                    <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
+                    <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button> 
                 </article>
             ))} 
         </div>
 
         {/*Formulär för att uppdatera nyhet. Ska synas ifall man klickar på knappen Uppdatera.*/}
         {selectedNews && (
-            <form id="updateForm" onSubmit={handleFormSubmit}>
+            <form id="generalForm" onSubmit={handleFormSubmit}>
                 <h3>Uppdatera nyhet</h3>
                 <label htmlFor="title">Nyhetstitel:</label><br />
                 <input type="text" id="title" name="title" value={formValues.title}
@@ -111,8 +113,8 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
                 <input type="file" id="image" name="image" 
                 onChange={handleFormChange}/><br />
 
-                <button type="submit">Spara ändringar</button>
-                <button onClick={() => setSelectedNews(null)}>Avbryt</button>
+                <button id="saveBtn" type="submit">Spara ändringar</button>
+                <button id="cancelBtn" onClick={() => setSelectedNews(null)}>Avbryt</button>
             </form>
         )}
 

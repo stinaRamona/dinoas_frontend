@@ -3,6 +3,8 @@ import { useState } from "react";
 import useDelete from "../hooks/useDelete";
 import useUpdate from "../hooks/useUpdate";
 import fetchData from "../hooks/fetchData";
+import "../css/HandleItemStyle.css"; 
+import "../css/GeneralFormStyle.css"; 
 
 const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; refreshItemList : () => void}) => {
     
@@ -80,14 +82,14 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
                     {item.service_picture && (
                         <img src={`http://localhost:3000${item.service_picture}`} alt="Tjänstbild" />
                     )}
-                    <button onClick={() => handleDelete(item._id)}>Ta bort</button>
-                    <button onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>
+                    <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
+                    <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>
                 </article>
             ))}
         </div>
 
         {selectedService && (
-            <form id="updateForm" onSubmit={handleFormSubmit}>
+            <form id="generalForm" onSubmit={handleFormSubmit}>
                 <h3>Uppdatera tjänst</h3>
                 <label htmlFor="title">Tjänsttitel:</label><br />
                 <input type="text" id="title" name="title" value={formValues.title} 
@@ -104,8 +106,8 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
                 onChange={handleFormChange}
                 /><br /> 
 
-                <button type="submit">Spara ändringar</button>
-                <button onClick={() => setSelectedService(null)}>Avbryt</button>
+                <button id="saveBtn" type="submit">Spara ändringar</button>
+                <button id="cancelBtn" onClick={() => setSelectedService(null)}>Avbryt</button>
             </form>
         )}
         </>
