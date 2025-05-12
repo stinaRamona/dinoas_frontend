@@ -38,6 +38,9 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
             content: news.news_content, 
             image: null,
         });
+
+        window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
+        
     }
 
     const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,36 +90,38 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
                         <img src={`http://localhost:3000${item.news_picture}`} alt="nyhetsbild" />
                     )}
                     <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
-                    <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button> 
+                    <button id="updateBtn"onClick={() => {handleUpdateBtnClick(item);}} >Uppdatera</button>
                 </article>
             ))} 
         </div>
 
-        {/*Formulär för att uppdatera nyhet. Ska synas ifall man klickar på knappen Uppdatera.*/}
-        {selectedNews && (
-            <form id="generalForm" onSubmit={handleFormSubmit}>
-                <h3>Uppdatera nyhet</h3>
-                <label htmlFor="title">Nyhetstitel:</label><br />
-                <input type="text" id="title" name="title" value={formValues.title}
-                onChange={handleFormChange}/><br />
+        <div id="updateForm">
+            {/*Formulär för att uppdatera nyhet. Ska synas ifall man klickar på knappen Uppdatera.*/}
+            {selectedNews && (
+                <form id="generalForm" onSubmit={handleFormSubmit}>
+                    <h3>Uppdatera nyhet</h3>
+                    <label htmlFor="title">Nyhetstitel:</label><br />
+                    <input type="text" id="title" name="title" value={formValues.title}
+                    onChange={handleFormChange}/><br />
 
-        
-                <label htmlFor="author">Författare:</label><br />
-                <input type="text" id="author" name="author" value={formValues.author}
-                onChange={handleFormChange}/><br />
-        
-                <label htmlFor="content">Inlägg:</label><br />
-                <input type="text" id="content" name="content" value={formValues.content}
-                onChange={handleFormChange}/><br />
-        
-                <label htmlFor="image">Bild:</label><br />
-                <input type="file" id="image" name="image" 
-                onChange={handleFormChange}/><br />
+            
+                    <label htmlFor="author">Författare:</label><br />
+                    <input type="text" id="author" name="author" value={formValues.author}
+                    onChange={handleFormChange}/><br />
+            
+                    <label htmlFor="content">Inlägg:</label><br />
+                    <input type="text" id="content" name="content" value={formValues.content}
+                    onChange={handleFormChange}/><br />
+            
+                    <label htmlFor="image">Bild:</label><br />
+                    <input type="file" id="image" name="image" 
+                    onChange={handleFormChange}/><br />
 
-                <button id="saveBtn" type="submit">Spara ändringar</button>
-                <button id="cancelBtn" onClick={() => setSelectedNews(null)}>Avbryt</button>
-            </form>
-        )}
+                    <button id="saveBtn" type="submit">Spara ändringar</button>
+                    <button id="cancelBtn" onClick={() => setSelectedNews(null)}>Avbryt</button>
+                </form>
+            )}
+        </div>
 
         </>
     )

@@ -37,6 +37,8 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
             description: project.project_description, 
             image: null,
         })
+
+        window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
     }
 
     const handleFormChange =(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,25 +94,28 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
             }
         </div>
 
-        {selectedProject && (
-            <form id="generalForm" onSubmit={handleFormSubmit}>
-                <h3>Uppdatera projekt</h3>
-                <label htmlFor="title">Projekttitel:</label><br />
-                <input type="text" id="title" name="title" value={formValues.title}
-                onChange={handleFormChange} /><br />
+        <div id="updateForm">
+            {selectedProject && (
+                <form id="generalForm" onSubmit={handleFormSubmit}>
+                    <h3>Uppdatera projekt</h3>
+                    <label htmlFor="title">Projekttitel:</label><br />
+                    <input type="text" id="title" name="title" value={formValues.title}
+                    onChange={handleFormChange} /><br />
 
-                <label htmlFor="description">Beskrivning</label><br />
-                <input type="text" id="description" name="description" value={formValues.description} 
-                onChange={handleFormChange} /><br />
+                    <label htmlFor="description">Beskrivning</label><br />
+                    <input type="text" id="description" name="description" value={formValues.description} 
+                    onChange={handleFormChange} /><br />
 
-                <label htmlFor="image">Bild:</label><br />
-                <input type="file" id="image" name="image"
-                onChange={handleFormChange} /><br />
-                
-                <button id="saveBtn" type="submit">Spara ändringar</button>
-                <button id="cancelBtn" onClick={() => setSelectedProject(null)}>Avbryt</button>
-            </form>
-        )}
+                    <label htmlFor="image">Bild:</label><br />
+                    <input type="file" id="image" name="image"
+                    onChange={handleFormChange} /><br />
+                    
+                    <button id="saveBtn" type="submit">Spara ändringar</button>
+                    <button id="cancelBtn" onClick={() => setSelectedProject(null)}>Avbryt</button>
+                </form>
+            )}
+        </div>
+
         </>
     )
 }

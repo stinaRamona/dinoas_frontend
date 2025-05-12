@@ -36,6 +36,8 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
             description: service.service_description,
             image: null,
         })
+
+        window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
     }
 
     const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,28 +90,31 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
             ))}
         </div>
 
-        {selectedService && (
-            <form id="generalForm" onSubmit={handleFormSubmit}>
-                <h3>Uppdatera tjänst</h3>
-                <label htmlFor="title">Tjänsttitel:</label><br />
-                <input type="text" id="title" name="title" value={formValues.title} 
-                onChange={handleFormChange}
-                /><br />
+        <div id="updateForm">
+            {selectedService && (
+                <form id="generalForm" onSubmit={handleFormSubmit}>
+                    <h3>Uppdatera tjänst</h3>
+                    <label htmlFor="title">Tjänsttitel:</label><br />
+                    <input type="text" id="title" name="title" value={formValues.title} 
+                    onChange={handleFormChange}
+                    /><br />
 
-                <label htmlFor="description">Beskrivning:</label><br />
-                <input type="text" id="description" name="description" value={formValues.description} 
-                onChange={handleFormChange}
-                /><br />
+                    <label htmlFor="description">Beskrivning:</label><br />
+                    <input type="text" id="description" name="description" value={formValues.description} 
+                    onChange={handleFormChange}
+                    /><br />
 
-                <label htmlFor="image">Bild:</label><br />
-                <input type="file" id="image" name="image"
-                onChange={handleFormChange}
-                /><br /> 
+                    <label htmlFor="image">Bild:</label><br />
+                    <input type="file" id="image" name="image"
+                    onChange={handleFormChange}
+                    /><br /> 
 
-                <button id="saveBtn" type="submit">Spara ändringar</button>
-                <button id="cancelBtn" onClick={() => setSelectedService(null)}>Avbryt</button>
-            </form>
-        )}
+                    <button id="saveBtn" type="submit">Spara ändringar</button>
+                    <button id="cancelBtn" onClick={() => setSelectedService(null)}>Avbryt</button>
+                </form>
+            )}
+        </div>
+
         </>
     )
 }

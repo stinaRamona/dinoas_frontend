@@ -73,3 +73,8 @@
     background-color: #2f4d41; 
     transition: .5s; 
 }
+
+/*ger rum för formulär för scroll*/
+#updateForm {
+    height: 400px;
+}
