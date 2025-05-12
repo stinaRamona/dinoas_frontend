@@ -18,8 +18,11 @@ function AdminPage() {
   return (
     <div>
       <main> 
-          <h1>Adminsidan</h1>
-          <p>Tryck på den kategori som du vill hantera</p>
+          <h1>Välkommen till adminsidan</h1>
+          <p>
+            Här kan du lägga till och hantera innehåll för kategorierna Nyheter, Portfolio och Tjänster. Tryck på den rubriken du vill hantera för att få fram administrationsvyn. 
+            Vill du ändra någon annan del av webbplatsen? Kontakta webbutvecklare <a href="mailto:stinarpersson@gmail.com">Stina Persson.</a> 
+          </p>
           <div id="adminCategoryContainer">
             <div className="adminCategoryItem">
               <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
