@@ -11,7 +11,7 @@
     margin-bottom: 5px; 
 }
 
-#generalFormLogin input[type=text], input[type=email] {
+#generalFormLogin input[type=text], #generalFormLogin input[type=email] {
     width: 40%; 
     padding: 0.75em; 
     border-radius: 4px;

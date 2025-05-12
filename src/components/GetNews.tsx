@@ -62,7 +62,7 @@ const GetNews = () => {
                 )}
                 <h3>{news.news_title}</h3>
                 <em>Av {news.author}</em>
-                <p>{news.news_content}</p>
+                <p>{news.news_content.length > 100 ? news.news_content.substring(0, 100) + "..." : news.news_content}</p>
                 </article>
             ))
             }

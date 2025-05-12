@@ -54,7 +54,7 @@ const GetPortfolio = () => {
                     <article key={index} className="projectItem">
                         <div className="projectText" onClick={() => goToSingleProject(project._id)}>
                             <h2>{project.project_name}</h2>
-                            <p>{project.project_description}</p>
+                            <p>{project.project_description.length > 100 ? project.project_description.substring(0, 100) + "..." : project.project_description}</p>
                         </div>
 
                         <div className="projectImg">
