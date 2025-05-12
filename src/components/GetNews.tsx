@@ -50,7 +50,7 @@ const GetNews = () => {
     }, []); 
     return (
         <>
-        <div id="gridContainer">
+        <div id="gridContainer" title="Läs mer">
             {
             //visar tre nyheter på startsidan och alla nyheter på nyhetssidan
             newsData.slice(0, window.location.pathname === "/" ? 3 : newsData.length).map((news, index) => (

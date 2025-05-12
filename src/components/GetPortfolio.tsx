@@ -48,7 +48,7 @@ const GetPortfolio = () => {
 
     return (
         <>
-        <div id="projectContainer">
+        <div id="projectContainer" title="Läs mer">
             {
                 projectData.map((project, index) => (
                     <article key={index} className="projectItem">

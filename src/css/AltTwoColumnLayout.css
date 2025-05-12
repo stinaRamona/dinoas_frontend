@@ -15,6 +15,12 @@
     width: 100%;
 }
 
+.projectItem:hover {
+    background-color: #fdf5dbbd;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .projectItem:nth-child(even) {
     flex-direction: row-reverse;
 }

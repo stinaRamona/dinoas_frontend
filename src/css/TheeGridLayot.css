@@ -8,6 +8,7 @@
 .gridItem:hover {
     background-color: #fdf5dbbd;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 

@@ -47,7 +47,7 @@ const GetServices = () => {
     }, []); 
     return (
         <>
-        <div id="gridContainer">
+        <div id="gridContainer" title="Läs mer">
             {
                 serviceData.map((service, index) => (
                     <article key={index} className="gridItem" onClick={() => goToSinglePage(service._id)}>
