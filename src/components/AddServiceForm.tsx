@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/GeneralFormStyle.css"; 
 
 
 const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
@@ -63,7 +64,8 @@ const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
 
     return (
     <>
-    <form onSubmit={addService} encType="multipart/form-data">
+    <h3>Lägg till en tjänst</h3>
+    <form onSubmit={addService} encType="multipart/form-data" id="generalForm">
         <label htmlFor="name">Projektnamn:</label><br />
         <input type="text" name="name" id="name" value={serviceData.service_name}
         onChange={(e) => setServiceData({...serviceData, service_name: e.target.value})}

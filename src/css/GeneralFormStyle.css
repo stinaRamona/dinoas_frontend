@@ -1,0 +1,46 @@
+#generalForm {
+    width: 100%; 
+}
+
+#generalForm input[type=text] {
+    width: 90%; 
+    padding: 0.5em; 
+    border-radius: 4px;
+    border: 1px solid #426A5A;
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+}
+
+#generalFormLogin input[type=text], input[type=email] {
+    width: 40%; 
+    padding: 0.75em; 
+    border-radius: 4px;
+    border: 1px solid #426A5A;
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+}
+
+#generalForm input[type=file]::file-selector-button {
+    margin-right: 2em; 
+    margin-bottom: 1em; 
+    background-color: #426A5A;
+    color: #fffcf2; 
+    padding: 1em; 
+    font-size: 1em;
+    font-weight:500;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+#generalForm input[type=file]::file-selector-button:hover {
+    cursor: pointer;
+    transition: .5s; 
+    background-color: #335245;
+}
+
+#generalForm label { 
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;  
+}

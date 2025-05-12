@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/GeneralFormStyle.css"; 
 
 const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
     
@@ -79,7 +80,7 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
     return (
         <>
         <h3>Lägg till en nyhet</h3>
-        <form onSubmit={addNews} encType="multipart/form-data">
+        <form onSubmit={addNews} encType="multipart/form-data" id="generalForm">
             <label htmlFor="title">Nyhetstitel:</label><br />
             <input type="text" name="title" id="title" value={newsData.news_title} 
             onChange={(e) => setNewsData({...newsData, news_title: e.target.value})}

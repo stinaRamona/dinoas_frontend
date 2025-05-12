@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"; 
 import { useState, useEffect  } from "react";
 import { useAuth } from "../context/AuthContext"; 
+import "../css/GeneralFormStyle.css"; 
 
 function LoginForm() {
 
@@ -53,7 +54,7 @@ function LoginForm() {
 
   return (
     <>
-    <form onSubmit={loginUser}>
+    <form onSubmit={loginUser} id="generalFormLogin">
         <label htmlFor="email">E-post</label><br />
         <input type="email" id="email" name="email" required value={loginInfo.user_email}
         onChange={ (e) => setLoginInfo({...loginInfo, user_email: e.target.value})}

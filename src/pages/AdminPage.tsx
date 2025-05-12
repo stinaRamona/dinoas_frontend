@@ -3,6 +3,7 @@ import { useState } from "react";
 import NewsParent from "../components/NewsParent";
 import PortfolioParent from "../components/PortfolioParent";
 import ServiceParent from "../components/ServiceParent";
+import "../css/AdminPage.css"; 
 
 function AdminPage() {
 
@@ -16,38 +17,44 @@ function AdminPage() {
 
   return (
     <div>
-      <main>
-        <h1>Adminsidan</h1>
-        <p>Tryck på den kategori som du vill hantera</p>
+      <main> 
+          <h1>Adminsidan</h1>
+          <p>Tryck på den kategori som du vill hantera</p>
+          <div id="adminCategoryContainer">
+            <div className="adminCategoryItem">
+              <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
+              {
+                isVisible === "news" && (
+                  <>
+                    <NewsParent />
+                  </>
+                )
+              }
+            </div>
 
-        <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
-        {
-          isVisible === "news" && (
-            <>
-              <NewsParent />
-            </>
-          )
-        }
+            <div className="adminCategoryItem">
+              <h2 onClick={() => toggleVisibility("portfolio")} style={{cursor: "pointer"}}>Portfolio</h2>
+              {
+                isVisible === "portfolio" && (
+                  <>
+                    <PortfolioParent />
+                  </>
+                )
+              }
+            </div>
 
+            <div className="adminCategoryItem">
+              <h2 onClick={() => toggleVisibility("services")} style={{cursor: "pointer"}}>Tjänster</h2>
+              {
+                isVisible === "services" && (
+                  <>
+                    <ServiceParent />
+                  </>
+                )
+              }
+            </div>
 
-        <h2 onClick={() => toggleVisibility("portfolio")} style={{cursor: "pointer"}}>Projekt till portfolio</h2>
-        {
-          isVisible === "portfolio" && (
-            <>
-              <PortfolioParent />
-            </>
-          )
-        }
-        
-
-        <h2 onClick={() => toggleVisibility("services")} style={{cursor: "pointer"}}>Tjänster</h2>
-        {
-          isVisible === "services" && (
-            <>
-              <ServiceParent />
-            </>
-          )
-        }
+          </div>
       </main>
 
     </div>

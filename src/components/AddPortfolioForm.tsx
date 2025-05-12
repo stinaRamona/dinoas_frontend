@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/GeneralFormStyle.css"; 
 
 
 const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
@@ -63,7 +64,8 @@ const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
 
     return (
     <>
-    <form onSubmit={addProject} encType="multipart/form-data">
+    <h3>Lägg till ett projekt</h3>
+    <form onSubmit={addProject} encType="multipart/form-data" id="generalForm">
         <label htmlFor="name">Projektnamn:</label><br />
         <input type="text" name="name" id="name" value={portfolioData.project_name}
         onChange={(e) => setPortfolioData({...portfolioData, project_name: e.target.value})}
