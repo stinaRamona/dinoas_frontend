@@ -80,29 +80,32 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
     return (
         <>
         <h3>Lägg till en nyhet</h3>
-        <form onSubmit={addNews} encType="multipart/form-data" id="generalForm">
-            <label htmlFor="title">Nyhetstitel:</label><br />
-            <input type="text" name="title" id="title" value={newsData.news_title} 
-            onChange={(e) => setNewsData({...newsData, news_title: e.target.value})}
-            /><br />
+        <div id="generalFormContainer">
+            <form onSubmit={addNews} encType="multipart/form-data" id="generalForm">
+                <label htmlFor="title">Nyhetstitel:</label><br />
+                <input type="text" name="title" id="title" value={newsData.news_title} 
+                onChange={(e) => setNewsData({...newsData, news_title: e.target.value})}
+                /><br />
 
-            <label htmlFor="author">Författare:</label><br />
-            <input  type="text" name="author" id="author" value={newsData.author}
-            onChange={(e) => setNewsData({...newsData, author: e.target.value})}
-            /><br />
+                <label htmlFor="author">Författare:</label><br />
+                <input  type="text" name="author" id="author" value={newsData.author}
+                onChange={(e) => setNewsData({...newsData, author: e.target.value})}
+                /><br />
 
-            <label htmlFor="content">Inlägg:</label><br />
-            <input type="text" name="content" id="content" value={newsData.news_content} 
-            onChange={(e) => setNewsData({...newsData, news_content: e.target.value})}
-            /><br />
+                <label htmlFor="content">Inlägg:</label><br />
+                <input type="text" name="content" id="content" value={newsData.news_content} 
+                onChange={(e) => setNewsData({...newsData, news_content: e.target.value})}
+                /><br />
 
-            <label htmlFor="image">Bild:</label><br />
-            <input type="file" id="image" name="image" 
-            onChange={(e) => setNewsData({...newsData, file: e.target.files?.[0] || null})}
-            />
+                <label htmlFor="image">Bild:</label><br />
+                <input type="file" id="image" name="image" 
+                onChange={(e) => setNewsData({...newsData, file: e.target.files?.[0] || null})}
+                />
 
-            <input type="submit" value="Lägg till"/>
-        </form>
+                <input type="submit" value="Lägg till"/>
+            </form>
+        </div>
+
 
         {info.length > 0 && info.map((i, index) => <p key={index}>{i}</p>)}
         </>

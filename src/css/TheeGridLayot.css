@@ -25,4 +25,18 @@
     max-height: 100%;
     margin: 0 auto; 
     vertical-align: middle;
+} 
+
+/*mellanskärm*/
+@media (max-width: 900px) {
+    #gridContainer {
+       grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/*mobilskärm*/
+@media (max-width: 550px) {
+    #gridContainer {
+        grid-template-columns: repeat(1, 1fr); 
+    }
 }

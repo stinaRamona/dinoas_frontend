@@ -3,3 +3,20 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2em; 
 }
+
+/*mellanskärm*/
+@media (max-width: 900px) {
+    #adminCategoryContainer {
+       grid-template-columns: repeat(2, 1fr); 
+    }
+
+}
+
+/*mobilskärm*/
+@media (max-width: 550px) {
+    #adminCategoryContainer {
+        grid-template-columns: repeat(1, 1fr); 
+        padding: 2em; 
+    }
+
+}

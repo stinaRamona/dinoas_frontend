@@ -37,3 +37,17 @@
     width: 100%;
     height: auto;
 }
+
+/*mobilskärm*/
+@media (max-width: 550px) {
+
+    .projectItem {
+    flex-direction: column;
+    padding: 2em; 
+}
+
+    .projectItem:nth-child(even) {
+    flex-direction: column;
+}
+
+}

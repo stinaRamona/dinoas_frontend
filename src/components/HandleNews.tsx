@@ -79,7 +79,7 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
     return (
         <>
         {/*Här skrivs nyheter ut för uppdatering och för radering. Hantering.*/}
-        <div>
+        <div id="handleItemContainer">
             <h3>Hantera postade nyheter</h3>
             {news.map((item: News)=> (
                 <article key={item._id}>
