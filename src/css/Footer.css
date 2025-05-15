@@ -12,3 +12,13 @@ footer {
     max-width: 33%; 
     padding: 3em; 
 }
+
+@media (max-width: 550px) {
+    footer {
+        flex-direction: column;
+    }
+
+    .footerInfo {
+        max-width: 100%;
+    }
+}
