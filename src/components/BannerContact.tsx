@@ -12,7 +12,7 @@ const BannerContact = () => {
     return (
         <>
         <div id="bannerContainer">
-            <h2>Att skapa en oas börjar med ett klick</h2>
+            <h2 style={{textAlign: "center"}}>Att skapa en oas börjar med ett klick</h2>
             <button id="contactBtn" onClick={toContactPage}>Kontakta oss</button>
         </div>
         </>
