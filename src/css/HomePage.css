@@ -4,13 +4,31 @@
     gap: 2em;
     padding: 10px;
     padding-top: 200px; 
-
 } 
 
 #textContainer {
-
+    align-self: center;
 }
 
 #imgContainer {
+    align-self: center;
+}
 
+#imgContainer img {
+    width: 100%; 
+    height: auto;
+}
+
+@media (max-width: 890px) {
+    #home-infoContainer {
+        padding-top: 100px; 
+    }
+}
+
+@media (max-width: 670px) {
+    #home-infoContainer {
+        grid-template-columns: repeat(1, 1fr);
+        padding-top: 0; 
+    }
+    
 }

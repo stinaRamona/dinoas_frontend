@@ -25,6 +25,39 @@ header li {
     transition: .3s; 
 }
 
+/*Hamburgermeny*/
+#hamburgerBtn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fffcf2;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-menu.open {
+    display: flex; 
+    flex-direction: column;
+    position: fixed;
+    top: 10%;
+    right: 0;
+    background-color: #426a5a;
+    padding: 1rem;
+    width: 200px;
+    height: 100vw;
+}
+
+.nav-menu li {
+    margin: 0.5rem 0;
+}
+
 /*Grundkod för animering vid hover*/
 ul .nav-link:hover {
     color: #ffffff;
@@ -52,7 +85,7 @@ ul li .nav-link.active {
 }
 
 /*headerwave*/
-img {
+#headerWave {
     width: 100%;
     z-index: -1; 
 }
@@ -86,9 +119,57 @@ img {
 /*Hearder image*/
 #headerImgWrapper {
     width: 100%;
-    max-width: 100vw; 
     height: auto; 
     position: absolute;
     top: 0; 
     z-index: -1;
+}
+
+#headerImgWrapper img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 965px) {
+    #hamburgerBtn {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 670px) {
+    #headerWave {
+        display: none;
+    } 
+
+    #headerImgWrapper img {
+        display: none;
+    }
+
+    header {
+        background-color: #426a5a;
+        top: 0; 
+        position: relative; 
+        width: 100%; 
+        z-index: 99;
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-menu.open {
+    display: flex; 
+    flex-direction: column;
+    position: fixed;
+    top: 15%;
+    right: 0;
+    background-color: #426a5a;
+    padding: 1rem;
+    width: 200px;
+    height: 100vw;
+}
 }
