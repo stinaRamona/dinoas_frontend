@@ -8,7 +8,6 @@
 #singleImgContainer {
     max-width: 100%; 
     margin: 0 auto; 
-    text-align: center;
 }
 
 #singleImgContainer img {
@@ -18,7 +17,6 @@
 
 #singleItemContent {
     max-width: 37em; 
-    margin: 1rem auto; 
     line-height: 1.6; 
 } 
 
