@@ -22,7 +22,7 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
 
     //states
     const [selectedService, setSelectedService] = useState<Service | null>(null); 
-    const [formValues, setFormValues] = useState({title: "", description: "", image: null}); 
+    const [formValues, setFormValues] = useState({upd_title: "", upd_description: "", upd_image: null}); 
 
     const handleDelete = async (id: string) => {
         await deleteService(id); 
@@ -32,9 +32,9 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
     const handleUpdateBtnClick = (service: Service) => {
         setSelectedService(service); 
         setFormValues({
-            title: service.service_name,
-            description: service.service_description,
-            image: null,
+            upd_title: service.service_name,
+            upd_description: service.service_description,
+            upd_image: null,
         })
 
         window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
@@ -45,7 +45,7 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
 
         setFormValues((prevValues) => ({
             ...prevValues,
-            [name] : name === "image" ? (e.target.files ? e.target.files[0] : null) : value,
+            [name] : name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value,
         }))
     }
 
@@ -55,10 +55,10 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
         if(!selectedService) return; 
 
         const updatedService = new FormData(); 
-        updatedService.append("service_name", formValues.title);
-        updatedService.append("service_description", formValues.description);
-        if(formValues.image) {
-            updatedService.append("file", formValues.image); 
+        updatedService.append("service_name", formValues.upd_title);
+        updatedService.append("service_description", formValues.upd_description);
+        if(formValues.upd_image) {
+            updatedService.append("file", formValues.upd_image); 
         }
 
         await updateService(selectedService._id, updatedService);
@@ -94,18 +94,18 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
             {selectedService && (
                 <form id="generalForm" onSubmit={handleFormSubmit}>
                     <h3>Uppdatera tjänst</h3>
-                    <label htmlFor="title">Tjänsttitel:</label><br />
-                    <input type="text" id="title" name="title" value={formValues.title} 
+                    <label htmlFor="upd_title">Tjänsttitel:</label><br />
+                    <input type="text" id="upd_title" name="upd_title" value={formValues.upd_title} 
                     onChange={handleFormChange}
                     /><br />
 
-                    <label htmlFor="description">Beskrivning:</label><br />
-                    <input type="text" id="description" name="description" value={formValues.description} 
+                    <label htmlFor="upd_description">Beskrivning:</label><br />
+                    <input type="text" id="upd_description" name="upd_description" value={formValues.upd_description} 
                     onChange={handleFormChange}
                     /><br />
 
-                    <label htmlFor="image">Bild:</label><br />
-                    <input type="file" id="image" name="image"
+                    <label htmlFor="upd_image">Bild:</label><br />
+                    <input type="file" id="upd_image" name="upd_image"
                     onChange={handleFormChange}
                     /><br /> 
 

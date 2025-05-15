@@ -54,7 +54,7 @@ const GetServices = () => {
                         {service.service_picture && (
                             <img src={`http://localhost:3000${service.service_picture}`} alt="nyhetsbild" />
                         )}
-                        <h3>{service.service_name}</h3>
+                        <h2>{service.service_name}</h2>
                         <p>{service.service_description.length > 100 ? service.service_description.substring(0, 100) + "..." : service.service_description}</p>
                     </article>
                 ))

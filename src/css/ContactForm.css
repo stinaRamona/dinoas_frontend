@@ -9,11 +9,11 @@
 #contatHeadeing {
     max-width: 25%;
     font-size: 4em;
-    color: #FFFCF2;
+    color: #000;
 }
 
 #oasGreen {
-    color: #426A5A; 
+    color: #000; 
     font-size: 1.5em;
     font-style: italic;
     font-weight: bold;
@@ -38,8 +38,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    background-color: #ef6f6c;
-    color: #FFFCF2;
+    background-color: #FFFCF2;
+    color: #000;
 }
 
 .inputWrapper label {
@@ -47,10 +47,10 @@
     top: 50%;
     left: 1em; 
     transform: translateY(-50%);
-    background-color: #ef6f6c;
+    background-color: #FFFCF2;
     padding: 0 0.2em;
     font-size: 1rem;
-    color: #f2cb79;
+    color: #000;
     transition: all 0.3s ease;
     pointer-events: none;
 }
@@ -60,7 +60,8 @@
     top: -0.8rem;
     left: 1rem;
     font-size: 0.875rem;
-    color: #FFC857;
+    color: #000;
+    background-color: #ef6f6c;
 }
 
 .inputWrapper textarea {
@@ -70,8 +71,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    background-color: #ef6f6c;
-    color: #FFFCF2;
+    background-color: #FFFCF2;
+    color: #000;
     resize: vertical; 
     min-height: 100px; 
 }
@@ -81,7 +82,8 @@
     top: -0.8rem;
     left: 1rem;
     font-size: 0.875rem;
-    color: #FFC857;
+    color: #000;
+    background-color: #ef6f6c;
 }
 
 form textarea {

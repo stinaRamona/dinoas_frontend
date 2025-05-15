@@ -60,7 +60,7 @@ const GetNews = () => {
                 ) : (
                     <img src={placeholder} alt="placeholder image"/>
                 )}
-                <h3>{news.news_title}</h3>
+                <h2>{news.news_title}</h2>
                 <em>Av {news.author}</em>
                 <p>{news.news_content.length > 100 ? news.news_content.substring(0, 100) + "..." : news.news_content}</p>
                 </article>

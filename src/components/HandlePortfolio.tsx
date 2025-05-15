@@ -22,7 +22,7 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
     //states
     const [selectedProject, setSelectedProject] = useState<Portfolio | null>(null); 
-    const [formValues, setFormValues] = useState({title: "", description: "", image: null})
+    const [formValues, setFormValues] = useState({upd_title: "", upd_description: "", upd_image: null})
 
     //radering 
     const handleDelete = async (id: string) => {
@@ -33,9 +33,9 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
     const handleUpdateBtnClick = (project: Portfolio) => {
         setSelectedProject(project); 
         setFormValues({
-            title: project.project_name, 
-            description: project.project_description, 
-            image: null,
+            upd_title: project.project_name, 
+            upd_description: project.project_description, 
+            upd_image: null,
         })
 
         window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
@@ -46,7 +46,7 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
         setFormValues((prevValues) => ({
             ...prevValues, 
-            [name]: name === "image" ? (e.target.files ? e.target.files[0] : null) : value, 
+            [name]: name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value, 
         }))
     }
 
@@ -58,10 +58,10 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
         //data från formulär görs till FormData
         const updatedProject = new FormData(); 
-        updatedProject.append("project_name", formValues.title); 
-        updatedProject.append("project_description", formValues.description);
-        if(formValues.image) {
-            updatedProject.append("file", formValues.image); 
+        updatedProject.append("project_name", formValues.upd_title); 
+        updatedProject.append("project_description", formValues.upd_description);
+        if(formValues.upd_image) {
+            updatedProject.append("file", formValues.upd_image); 
         }
 
         //datan skickas till hooken för uppdatering
@@ -98,16 +98,16 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
             {selectedProject && (
                 <form id="generalForm" onSubmit={handleFormSubmit}>
                     <h3>Uppdatera projekt</h3>
-                    <label htmlFor="title">Projekttitel:</label><br />
-                    <input type="text" id="title" name="title" value={formValues.title}
+                    <label htmlFor="upd_title">Projekttitel:</label><br />
+                    <input type="text" id="upd_title" name="upd_title" value={formValues.upd_title}
                     onChange={handleFormChange} /><br />
 
-                    <label htmlFor="description">Beskrivning</label><br />
-                    <input type="text" id="description" name="description" value={formValues.description} 
+                    <label htmlFor="upd_description">Beskrivning</label><br />
+                    <input type="text" id="upd_description" name="upd_description" value={formValues.upd_description} 
                     onChange={handleFormChange} /><br />
 
-                    <label htmlFor="image">Bild:</label><br />
-                    <input type="file" id="image" name="image"
+                    <label htmlFor="upd_image">Bild:</label><br />
+                    <input type="file" id="upd_image" name="upd_image"
                     onChange={handleFormChange} /><br />
                     
                     <button id="saveBtn" type="submit">Spara ändringar</button>

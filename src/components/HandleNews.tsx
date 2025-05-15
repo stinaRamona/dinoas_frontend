@@ -22,7 +22,7 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
     const updateNews = useUpdate("http://localhost:3000/news");
     
     const [selectedNews, setSelectedNews] = useState<News | null>(null); 
-    const [formValues, setFormValues] = useState({title: "", author: "", content: "", image: null}); 
+    const [formValues, setFormValues] = useState({upd_title: "", upd_author: "", upd_content: "", upd_image: null}); 
 
 
     const handleDelete = async (id: string) => {
@@ -33,10 +33,10 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
     const handleUpdateBtnClick = (news: News) => {
         setSelectedNews(news); 
         setFormValues({
-            title: news.news_title, 
-            author: news.author, 
-            content: news.news_content, 
-            image: null,
+            upd_title: news.news_title, 
+            upd_author: news.author, 
+            upd_content: news.news_content, 
+            upd_image: null,
         });
 
         window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
@@ -48,7 +48,7 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
 
         setFormValues((prevValues) => ({
             ...prevValues,
-            [name]: name === "image" ? (e.target.files ? e.target.files[0] : null) : value,
+            [name]: name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value,
         }))
     }
 
@@ -58,11 +58,11 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
         if(!selectedNews) return; 
 
         const updatedData = new FormData(); 
-        updatedData.append("news_title", formValues.title); 
-        updatedData.append("author", formValues.author); 
-        updatedData.append("news_content", formValues.content); 
-        if(formValues.image) {
-            updatedData.append("file", formValues.image); 
+        updatedData.append("news_title", formValues.upd_title); 
+        updatedData.append("author", formValues.upd_author); 
+        updatedData.append("news_content", formValues.upd_content); 
+        if(formValues.upd_image) {
+            updatedData.append("file", formValues.upd_image); 
         }; 
 
         await updateNews(selectedNews._id, updatedData);
@@ -100,21 +100,21 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
             {selectedNews && (
                 <form id="generalForm" onSubmit={handleFormSubmit}>
                     <h3>Uppdatera nyhet</h3>
-                    <label htmlFor="title">Nyhetstitel:</label><br />
-                    <input type="text" id="title" name="title" value={formValues.title}
+                    <label htmlFor="upd_title">Uppdatera nyhetstitel:</label><br />
+                    <input type="text" id="upd_title" name="upd_title" value={formValues.upd_title}
                     onChange={handleFormChange}/><br />
 
             
-                    <label htmlFor="author">Författare:</label><br />
-                    <input type="text" id="author" name="author" value={formValues.author}
+                    <label htmlFor="upd_author">Uppdatera författare:</label><br />
+                    <input type="text" id="upd_author" name="upd_author" value={formValues.upd_author}
                     onChange={handleFormChange}/><br />
             
-                    <label htmlFor="content">Inlägg:</label><br />
-                    <input type="text" id="content" name="content" value={formValues.content}
+                    <label htmlFor="upd_content">Uppdatera inlägg:</label><br />
+                    <input type="text" id="upd_content" name="upd_content" value={formValues.upd_content}
                     onChange={handleFormChange}/><br />
             
-                    <label htmlFor="image">Bild:</label><br />
-                    <input type="file" id="image" name="image" 
+                    <label htmlFor="upd_image">Uppdatera bild:</label><br />
+                    <input type="file" id="image" name="upd_image" 
                     onChange={handleFormChange}/><br />
 
                     <button id="saveBtn" type="submit">Spara ändringar</button>

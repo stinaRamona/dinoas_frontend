@@ -11,6 +11,11 @@
     text-decoration: underline;
 }
 
+/*För användarvänlighet, men att den inte ska se för stor ut*/
+.gridItem h2 {
+    font-size: 2em
+}
+
 
 #gridContainer .gridItem img {
     max-width: 100%; 
