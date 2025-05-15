@@ -48,13 +48,16 @@ const ServiceSingle = () => {
     <>
     <main>
       <div id="singleArticleContainer">
-          {
-            serviceInfo.service_picture ? (
-              <img src={`http://localhost:3000${serviceInfo.service_picture}`} alt="nyhetsbild"/>
-            ) : (
-              <img src={placeholder} alt="placeholder" />
-            )
-          }
+        <div id="singleImgContainer">
+            {
+              serviceInfo.service_picture ? (
+                <img src={`http://localhost:3000${serviceInfo.service_picture}`} alt="nyhetsbild"/>
+              ) : (
+                <img src={placeholder} alt="placeholder" />
+              )
+            }
+        </div>
+
         <h1>{serviceInfo.service_name}</h1>
         <article id="singleItemContent">{serviceInfo.service_description}</article>
 

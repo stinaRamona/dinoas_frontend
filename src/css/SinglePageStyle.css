@@ -2,13 +2,39 @@
     width: 100%; 
     max-width: 800px; 
     margin: 0 auto; 
+    box-sizing: border-box;
 }
 
 #singleImgContainer {
-    width: 100%; 
-    max-width: fit-content;
+    max-width: 100%; 
+    margin: 0 auto; 
+    text-align: center;
+}
+
+#singleImgContainer img {
+    max-width: 100%; 
+    height: auto; 
 }
 
 #singleItemContent {
     max-width: 37em; 
-}
+    margin: 1rem auto; 
+    line-height: 1.6; 
+} 
+
+@media (max-width: 900px) {
+    #singleArticleContainer {
+       padding: 1rem; 
+    }
+
+    #singleImgContainer img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #singleItemContent {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+} 
+

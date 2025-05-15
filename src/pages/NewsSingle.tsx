@@ -51,13 +51,16 @@ function NewsSingle() {
     <>
       <main>
         <div id="singleArticleContainer">
-          {
-            newsInfo.news_picture ? (
-              <img src={`http://localhost:3000${newsInfo.news_picture}`} alt="nyhetsbild"/>
-            ) : (
-              <img src={placeholder} alt="placeholder" />
-            )
-          }
+          <div id="singleImgContainer">
+            {
+              newsInfo.news_picture ? (
+                <img src={`http://localhost:3000${newsInfo.news_picture}`} alt="nyhetsbild"/>
+              ) : (
+                <img src={placeholder} alt="placeholder" />
+              )
+            }
+          </div>
+
           <h1>{newsInfo.news_title}</h1>
           <em>Av: {newsInfo.author}</em>
           <article id="singleItemContent">{newsInfo.news_content}</article>

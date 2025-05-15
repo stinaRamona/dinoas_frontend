@@ -48,13 +48,16 @@ const PortfolioSingle = () => {
         <>
         <main>
           <div id="singleArticleContainer">
-            {
-              portfolioInfo.project_picture ? (
-                  <img src={`http://localhost:3000${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
-              ) : (
-                  <img src={placeholder} alt="placeholder" />
-              )
-            }
+            <div id="#singleImgContainer">
+              {
+                portfolioInfo.project_picture ? (
+                    <img src={`http://localhost:3000${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
+                ) : (
+                    <img src={placeholder} alt="placeholder" />
+                )
+              }
+            </div>
+
             <h1>{portfolioInfo.project_name}</h1>
             <article id="singleItemContent">{portfolioInfo.project_description}</article>
           </div>
