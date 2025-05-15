@@ -28,6 +28,7 @@ const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
 
         if(infos.length) {
             setInfo(infos);
+            return;
         }
 
         //gör om till FormData
@@ -72,9 +73,9 @@ const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
         /><br />
 
         <label htmlFor="content">Information om projekt:</label><br />
-        <input type="text" name="content" id="content" value={serviceData.service_description} 
+        <textarea name="content" id="content" value={serviceData.service_description} 
         onChange={(e) => setServiceData({...serviceData, service_description: e.target.value})}
-        /><br />
+        ></textarea><br />
 
         <label htmlFor="image">Bild:</label><br />
         <input type="file" name="image" id="image" 

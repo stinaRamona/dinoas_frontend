@@ -78,3 +78,8 @@
 #updateForm {
     height: 400px;
 }
+
+/*bilder*/
+#handleItemContainer article img {
+    max-width: 100%; 
+}

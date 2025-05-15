@@ -43,13 +43,15 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
         
     }
 
-    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
 
         setFormValues((prevValues) => ({
             ...prevValues,
-            [name]: name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value,
-        }))
+            [name]: name === "upd_image" && e.target instanceof HTMLInputElement
+                ? (e.target.files ? e.target.files[0] : null)
+                : value,
+        }));
     }
 
     const handleFormSubmit = async (e: React.FormEvent) => {
@@ -110,8 +112,8 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
                     onChange={handleFormChange}/><br />
             
                     <label htmlFor="upd_content">Uppdatera inlägg:</label><br />
-                    <input type="text" id="upd_content" name="upd_content" value={formValues.upd_content}
-                    onChange={handleFormChange}/><br />
+                    <textarea id="upd_content" name="upd_content" value={formValues.upd_content}
+                    onChange={handleFormChange}></textarea><br />
             
                     <label htmlFor="upd_image">Uppdatera bild:</label><br />
                     <input type="file" id="image" name="upd_image" 

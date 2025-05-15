@@ -41,13 +41,15 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
         window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
     }
 
-    const handleFormChange =(e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFormChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value} = e.target; 
 
         setFormValues((prevValues) => ({
-            ...prevValues, 
-            [name]: name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value, 
-        }))
+            ...prevValues,
+            [name]: name === "upd_image" && e.target instanceof HTMLInputElement
+                ? (e.target.files ? e.target.files[0] : null)
+                : value,
+        }));
     }
 
     const handleFormSubmit = async (e: React.FormEvent) => {
@@ -78,7 +80,7 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
     return (
         <>
-        <div>
+        <div id="handleItemContainer">
             <h3>Hantera postade projekt</h3>
             {portfolio.map((item: Portfolio) => (
                 <article key={item._id}>
@@ -103,8 +105,9 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
                     onChange={handleFormChange} /><br />
 
                     <label htmlFor="upd_description">Beskrivning</label><br />
-                    <input type="text" id="upd_description" name="upd_description" value={formValues.upd_description} 
-                    onChange={handleFormChange} /><br />
+                    <textarea id="upd_description" name="upd_description" value={formValues.upd_description} 
+                    onChange={handleFormChange}
+                    ></textarea><br />
 
                     <label htmlFor="upd_image">Bild:</label><br />
                     <input type="file" id="upd_image" name="upd_image"

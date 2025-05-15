@@ -28,6 +28,7 @@ const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
 
         if(infos.length) {
             setInfo(infos);
+            return;
         }
 
         //gör om till FormData
@@ -72,9 +73,9 @@ const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
         /><br />
 
         <label htmlFor="content">Information om projekt:</label><br />
-        <input type="text" name="content" id="content" value={portfolioData.project_description} 
+        <textarea name="content" id="content" value={portfolioData.project_description} 
         onChange={(e) => setPortfolioData({...portfolioData, project_description: e.target.value})}
-        /><br />
+        ></textarea><br />
 
         <label htmlFor="image">Bild:</label><br />
         <input type="file" name="image" id="image" 

@@ -40,13 +40,15 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
         window.scrollTo({ left: 0, top: document.body.scrollHeight + 200, behavior: "smooth" });
     }
 
-    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} =e.target; 
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
 
         setFormValues((prevValues) => ({
             ...prevValues,
-            [name] : name === "upd_image" ? (e.target.files ? e.target.files[0] : null) : value,
-        }))
+            [name]: name === "upd_image" && e.target instanceof HTMLInputElement
+                ? (e.target.files ? e.target.files[0] : null)
+                : value,
+        }));
     }
 
     const handleFormSubmit = async (e: React.FormEvent) => {
@@ -75,7 +77,7 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
 
     return (
         <>
-        <div>
+        <div id="handleItemContainer">
             <h3>Hantera tjänster</h3>
             {services.map((item: Service) => (
                 <article key={item._id}>
@@ -100,9 +102,9 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
                     /><br />
 
                     <label htmlFor="upd_description">Beskrivning:</label><br />
-                    <input type="text" id="upd_description" name="upd_description" value={formValues.upd_description} 
+                    <textarea id="upd_description" name="upd_description" value={formValues.upd_description} 
                     onChange={handleFormChange}
-                    /><br />
+                    ></textarea><br />
 
                     <label htmlFor="upd_image">Bild:</label><br />
                     <input type="file" id="upd_image" name="upd_image"

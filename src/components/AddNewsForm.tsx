@@ -35,6 +35,7 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
         //felmeddelanden läggs till i info
         if(infos.length > 0) {
             setInfo(infos); 
+            return; 
         }
 
         console.log(newsData); 
@@ -93,9 +94,9 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
                 /><br />
 
                 <label htmlFor="content">Inlägg:</label><br />
-                <input type="text" name="content" id="content" value={newsData.news_content} 
+                <textarea name="content" id="content" value={newsData.news_content} 
                 onChange={(e) => setNewsData({...newsData, news_content: e.target.value})}
-                /><br />
+                ></textarea><br />
 
                 <label htmlFor="image">Bild:</label><br />
                 <input type="file" id="image" name="image" 
