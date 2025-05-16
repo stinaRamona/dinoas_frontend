@@ -1,6 +1,6 @@
 import BannerContact from "../components/BannerContact"
 import GetNews from "../components/GetNews"; 
-import homePic from "../assets/plant_and_face.jpg"; 
+import homePic from "../assets/plant_and_face.webp"; 
 import "../css/HomePage.css"; 
 import { useEffect } from "react";
 
