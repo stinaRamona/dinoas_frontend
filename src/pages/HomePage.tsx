@@ -2,8 +2,15 @@ import BannerContact from "../components/BannerContact"
 import GetNews from "../components/GetNews"; 
 import homePic from "../assets/plant_and_face.jpg"; 
 import "../css/HomePage.css"; 
+import { useEffect } from "react";
 
 function HomePage() {
+
+  useEffect(() => {
+    const img = new window.Image(); 
+    img.src = homePic; 
+  }, [])
+
   return (
     <div>
       <main>
