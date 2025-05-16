@@ -68,7 +68,7 @@ ul li .nav-link:before {
     position: absolute;
     inset: auto 0 0 0;
     height: 3px; 
-    background: #ef6f6c;
+    background: #fffcf2;
     scale: 0 1;
     transition: scale 0.3s, translate 0s 0.3s;
 }
@@ -81,7 +81,7 @@ ul li .nav-link:hover:before {
 
 ul li .nav-link.active {
     text-decoration: underline;
-    text-decoration-color:#ef6f6c;
+    text-decoration-color:#fffcf2;
 }
 
 /*headerwave*/
@@ -94,7 +94,8 @@ ul li .nav-link.active {
     width: 100%;
     max-width:200px; 
     height: auto;
-    padding:1%;  
+    padding:1%; 
+    color: #fffcf2 
 }
 
 /*Logga ut knapp*/
