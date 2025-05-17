@@ -98,18 +98,18 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
         <div id="updateForm">
             {selectedProject && (
-                <form id="generalForm" onSubmit={handleFormSubmit}>
+                <form id="generalForm" onSubmit={handleFormSubmit} encType="multipart/form-data">
                     <h3>Uppdatera projekt</h3>
-                    <label htmlFor="upd_title">Projekttitel:</label><br />
+                    <label htmlFor="upd_title">Uppdatera projekttitel:</label><br />
                     <input type="text" id="upd_title" name="upd_title" value={formValues.upd_title}
                     onChange={handleFormChange} /><br />
 
-                    <label htmlFor="upd_description">Beskrivning</label><br />
+                    <label htmlFor="upd_description">Uppdatera beskrivning</label><br />
                     <textarea id="upd_description" name="upd_description" value={formValues.upd_description} 
                     onChange={handleFormChange}
                     ></textarea><br />
 
-                    <label htmlFor="upd_image">Bild:</label><br />
+                    <label htmlFor="upd_image">Uppdatera bild:</label><br />
                     <input type="file" id="upd_image" name="upd_image"
                     onChange={handleFormChange} /><br />
                     

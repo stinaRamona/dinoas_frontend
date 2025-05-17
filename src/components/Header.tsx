@@ -20,7 +20,7 @@ function Header() {
         <>
         <header>
             <div id="logoWrapper">
-                <h1>Din Oas</h1>
+                <h1><NavLink to="/" id="logoLink">Din Oas</NavLink></h1>
             </div>
 
             {/*Knapp för hamburgermeny*/}

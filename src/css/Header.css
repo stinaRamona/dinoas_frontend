@@ -98,6 +98,11 @@ ul li .nav-link.active {
     color: #fffcf2 
 }
 
+#logoLink {
+    color: #fffcf2; 
+    text-decoration: none; 
+}
+
 /*Logga ut knapp*/
 #logOutBtn {
     margin-right: 2em; 

@@ -100,7 +100,7 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
         <div id="updateForm">
             {/*Formulär för att uppdatera nyhet. Ska synas ifall man klickar på knappen Uppdatera.*/}
             {selectedNews && (
-                <form id="generalForm" onSubmit={handleFormSubmit}>
+                <form id="generalForm" onSubmit={handleFormSubmit} encType="multipart/form-data">
                     <h3>Uppdatera nyhet</h3>
                     <label htmlFor="upd_title">Uppdatera nyhetstitel:</label><br />
                     <input type="text" id="upd_title" name="upd_title" value={formValues.upd_title}
