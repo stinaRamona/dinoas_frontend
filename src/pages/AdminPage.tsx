@@ -8,7 +8,7 @@ import "../css/AdminPage.css";
 function AdminPage() {
 
   //för att kunna toggla mellan vad man vill uppdatera
-  const [isVisible, setIsVisible] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState<string | null>("news"); 
 
   //toggla visning av speciellt innehåll från nyheter, portfolio och tjänster
   const toggleVisibility = (section: string) => {
@@ -25,7 +25,9 @@ function AdminPage() {
           </p>
           <div id="adminCategoryContainer">
             <div className="adminCategoryItem">
-              <h2 onClick={() => toggleVisibility("news")} style={{cursor: "pointer"}}>Nyheter</h2>
+              <h2 onClick={() => toggleVisibility("news")} 
+              style={{cursor: "pointer" ,
+              ...(isVisible === "news" ? {backgroundColor: "#fff1c4", padding: "0.25em", borderRadius: "5px"} : {}),}}>Nyheter</h2>
               {
                 isVisible === "news" && (
                   <>
@@ -36,7 +38,9 @@ function AdminPage() {
             </div>
 
             <div className="adminCategoryItem">
-              <h2 onClick={() => toggleVisibility("portfolio")} style={{cursor: "pointer"}}>Portfolio</h2>
+              <h2 onClick={() => toggleVisibility("portfolio")} 
+              style={{cursor: "pointer", 
+              ...(isVisible === "portfolio" ? {backgroundColor: "#fff1c4", padding: "0.25em", borderRadius: "5px"} : {}),}}>Portfolio</h2>
               {
                 isVisible === "portfolio" && (
                   <>
@@ -47,7 +51,9 @@ function AdminPage() {
             </div>
 
             <div className="adminCategoryItem">
-              <h2 onClick={() => toggleVisibility("services")} style={{cursor: "pointer"}}>Tjänster</h2>
+              <h2 onClick={() => toggleVisibility("services")} 
+              style={{cursor: "pointer", 
+              ...(isVisible === "services" ? {backgroundColor: "#fff1c4", padding: "0.25em", borderRadius: "5px"} : {}),}}>Tjänster</h2>
               {
                 isVisible === "services" && (
                   <>

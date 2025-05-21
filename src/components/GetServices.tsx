@@ -29,7 +29,7 @@ const GetServices = () => {
                 setInfo(["Kunde inte hämta tjänster! Försök igen senare"]); 
             } else {
                 const data = await response.json(); 
-                setServiceData(data); 
+                setServiceData(data.reverse()); 
             }
 
         } catch(error) {

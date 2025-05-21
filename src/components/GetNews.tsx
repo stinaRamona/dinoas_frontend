@@ -32,7 +32,7 @@ const GetNews = () => {
                 setInfo(["Kunde inte hämta nyheter! Försök igen senare"]); 
             } else {
                 const data = await response.json(); 
-                setNewsData(data); 
+                setNewsData(data.reverse()); 
             }
 
         } catch(error) {

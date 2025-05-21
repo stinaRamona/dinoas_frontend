@@ -12,7 +12,7 @@ const fetchData = (endpoint: string) => {
                 setLoading(true);
                 const response = await fetch(endpoint); 
                 const result = await response.json(); 
-                setdata(result); 
+                setdata(result.reverse()); //så att den senaste posten kommer först 
             } catch(error) {
                 console.log(error); 
             } finally {

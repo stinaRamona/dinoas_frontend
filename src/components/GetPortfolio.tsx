@@ -29,7 +29,7 @@ const GetPortfolio = () => {
                 setInfo(["Kunde inte hämta portfolio! Försök igen senare"]); 
             } else {
                 const data = await response.json(); 
-                setProjectData(data); 
+                setProjectData(data.reverse()); 
             }
 
         } catch(error) {
