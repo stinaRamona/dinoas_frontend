@@ -26,6 +26,9 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
 
     //radering 
     const handleDelete = async (id: string) => {
+        if(!window.confirm("Är du säker på att du vill ta bort detta projekt?")) {
+            return; //avbryter om användaren inte bekräftar
+        }
         await deletePortfolio(id); 
         refreshItemList(); 
     }

@@ -26,6 +26,9 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
 
 
     const handleDelete = async (id: string) => {
+        if (!window.confirm("Är du säker på att du vill ta bort denna nyhet?")) {
+            return; //Avbryt om användaren inte bekräftar
+        }
         await deleteNews(id); 
         refreshItemList(); 
     }; 

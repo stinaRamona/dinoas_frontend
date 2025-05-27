@@ -1,4 +1,5 @@
 import "../css/Footer.css"; 
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,6 +8,7 @@ function Footer() {
         <div className="footerInfo">
           <p>Adressgatan 20</p>
           <p>587 33 Linköping</p>
+          <p><NavLink to="/login" style={{color: "#fffcf2"}}>Admin login</NavLink></p>
         </div>
 
         <div className="footerInfo">

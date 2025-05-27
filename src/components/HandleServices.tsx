@@ -25,6 +25,9 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
     const [formValues, setFormValues] = useState({upd_title: "", upd_description: "", upd_image: null}); 
 
     const handleDelete = async (id: string) => {
+        if(!window.confirm("Är du säker på att du vill ta bort denna tjänst?")) {
+            return; //Avbryt om användaren inte bekräftar
+        }
         await deleteService(id); 
         refreshItemList(); 
     };
