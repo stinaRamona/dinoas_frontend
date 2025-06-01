@@ -54,6 +54,7 @@ const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
             console.log(data);
 
             setInfo(["Projektet har lagts till"]); 
+            setTimeout(() => setInfo([]), 1500);
             setPortfolioData({project_name: "", project_description: "", file: null});
             onProjectAdded(); 
         } catch(error) {

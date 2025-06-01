@@ -66,7 +66,8 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
 
             //rensning av forulär vid tilläggning av nyhet
             setNewsData({news_title:"", author: "", news_content:"", file: null});
-            setInfo(["Nyheten är tillagd!"]); 
+            setInfo(["Nyheten är tillagd!"]);
+            setTimeout(() => setInfo([]), 1500);
             onNewsAdded();
 
         } catch(error) {

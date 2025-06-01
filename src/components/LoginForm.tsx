@@ -61,7 +61,7 @@ function LoginForm() {
         /><br />
 
         <label htmlFor="password">Lösenord</label><br />
-        <input type="text" id="password" name="password" required value={loginInfo.user_password}
+        <input type="password" id="password" name="password" required value={loginInfo.user_password}
         onChange={(e) => setLoginInfo({...loginInfo, user_password: e.target.value})}
         /><br />
 

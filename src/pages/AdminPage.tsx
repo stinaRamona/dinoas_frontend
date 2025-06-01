@@ -26,7 +26,7 @@ function AdminPage() {
           <div id="adminCategoryContainer">
             <div className="adminCategoryItem">
               <h2 onClick={() => toggleVisibility("news")} 
-              style={{cursor: "pointer" ,
+              style={{cursor: "pointer",
               ...(isVisible === "news" ? {backgroundColor: "#fff1c4", padding: "0.25em", borderRadius: "5px"} : {}),}}>Nyheter</h2>
               {
                 isVisible === "news" && (

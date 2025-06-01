@@ -54,6 +54,7 @@ const AddServiceForm = ({onServiceAdded} : {onServiceAdded: () => void}) => {
             console.log(data); 
 
             setInfo(["Tjänsten har lagts till"]); 
+            setTimeout(() => setInfo([]), 1500);
             setServiceData({service_name: "", service_description: "", file: null});
             onServiceAdded(); 
             

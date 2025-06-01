@@ -22,7 +22,7 @@ function AboutPage() {
     <div>
       <main>
         <h1 style={{textAlign: "center"}}>Om oss</h1>
-        <p style={{maxWidth: "40em", margin: "0 auto", marginBottom: "5%"}}>Lite text hihihihihih Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ipsam animi ut quas doloremque, alias illum enim, tenetur doloribus minus impedit amet consequuntur neque veritatis est cum, distinctio id facere.</p>
+        <p style={{maxWidth: "40em", margin: "0 auto", marginBottom: "5%"}}>Din Oas är det nya, moderna trädgårdsföretaget som kombinerar hållbarhet med passion för växtliv. Vi erbjuder skräddarsydda trädgårdslösningar, innovativa odlingskoncept och rådgivning för att skapa gröna oaser oavsett om det gäller din balkong, trädgård eller kontorsmiljö.</p>
       </main>    
 
       <BannerQuote />

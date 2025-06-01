@@ -4,7 +4,7 @@ const BannerQuote = () => {
     return (
         <>
             <div id="bannerContainer">
-                <p id="bannerTextQUOTE">" Den som platerar en <em>trädgård </em> <br /> 
+                <p id="bannerTextQUOTE">" Den som planterar en <em>trädgård </em> <br /> 
                 planterar <em>lycka</em> "</p>
             </div>
         </>
