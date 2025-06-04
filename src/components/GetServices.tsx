@@ -18,7 +18,7 @@ const GetServices = () => {
 
     const getService = async () => {
         try {
-            const response = await fetch("http://localhost:3000/service", {
+            const response = await fetch("https://din-oas-api.onrender.com/service", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const GetServices = () => {
                 serviceData.map((service, index) => (
                     <article key={index} className="gridItem" onClick={() => goToSinglePage(service._id)}>
                         {service.service_picture && (
-                            <img src={`http://localhost:3000${service.service_picture}`} alt="nyhetsbild" />
+                            <img src={`https://din-oas-api.onrender.com${service.service_picture}`} alt="nyhetsbild" />
                         )}
                         <h2>{service.service_name}</h2>
                         <p>{service.service_description.length > 100 ? service.service_description.substring(0, 100) + "..." : service.service_description}</p>

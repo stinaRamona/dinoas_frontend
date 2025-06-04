@@ -16,9 +16,9 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
     }; 
 
     //hooks
-    const {data: portfolio, loading} = fetchData(`http://localhost:3000/portfolio?refreshKey=${refreshKey}`);
-    const deletePortfolio = useDelete("http://localhost:3000/portfolio");
-    const updatePortfolio = useUpdate("http://localhost:3000/portfolio");
+    const {data: portfolio, loading} = fetchData(`https://din-oas-api.onrender.com/portfolio?refreshKey=${refreshKey}`);
+    const deletePortfolio = useDelete("https://din-oas-api.onrender.com/portfolio");
+    const updatePortfolio = useUpdate("https://din-oas-api.onrender.com/portfolio");
 
     //states
     const [selectedProject, setSelectedProject] = useState<Portfolio | null>(null); 
@@ -90,7 +90,7 @@ const HandlePortfolio = ({refreshKey, refreshItemList} : {refreshKey : number; r
                     <h4>{item.project_name}</h4>
                     <p>{item.project_description}</p>
                     {item.project_picture && (
-                        <img src={`http://localhost:3000${item.project_picture}`} alt="projektbild" />
+                        <img src={`https://din-oas-api.onrender.com${item.project_picture}`} alt="projektbild" />
                     )}
                     <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
                     <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>

@@ -21,7 +21,7 @@ const GetNews = () => {
 
     const getNews = async () => {
         try {
-            const response = await fetch("http://localhost:3000/news", {
+            const response = await fetch("https://din-oas-api.onrender.com/news", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const GetNews = () => {
             newsData.slice(0, window.location.pathname === "/" ? 3 : newsData.length).map((news, index) => (
                 <article key={index} className="gridItem" onClick={() => goToSingle(news._id)}>
                 {news.news_picture ? (
-                    <img src={`http://localhost:3000${news.news_picture}`} alt="nyhetsbild" />
+                    <img src={`https://din-oas-api.onrender.com${news.news_picture}`} alt="nyhetsbild" />
                 ) : (
                     <img src={placeholder} alt="placeholder image"/>
                 )}

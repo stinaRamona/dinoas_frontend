@@ -14,12 +14,12 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
         news_title: string, 
         author: string, 
         news_content: string,
-        news_picture: string, //hur blir det med denna? Behöver jag två för att kunna uppdater (file skickas då)
+        news_picture: string, 
     }
 
-    const {data: news, loading} = fetchData(`http://localhost:3000/news?refreshKey=${refreshKey}`);
-    const deleteNews = useDelete("http://localhost:3000/news");
-    const updateNews = useUpdate("http://localhost:3000/news");
+    const {data: news, loading} = fetchData(`https://din-oas-api.onrender.com/news?refreshKey=${refreshKey}`);
+    const deleteNews = useDelete("https://din-oas-api.onrender.com/news");
+    const updateNews = useUpdate("https://din-oas-api.onrender.com/news");
     
     const [selectedNews, setSelectedNews] = useState<News | null>(null); 
     const [formValues, setFormValues] = useState({upd_title: "", upd_author: "", upd_content: "", upd_image: null}); 
@@ -92,7 +92,7 @@ const HandleNews = ({refreshKey, refreshItemList} : {refreshKey : number; refres
                     <p>{item.author}</p>
                     <p>{item.news_content}</p>
                     {item.news_picture && (
-                        <img src={`http://localhost:3000${item.news_picture}`} alt="nyhetsbild" />
+                        <img src={`https://din-oas-api.onrender.com${item.news_picture}`} alt="nyhetsbild" />
                     )}
                     <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
                     <button id="updateBtn"onClick={() => {handleUpdateBtnClick(item);}} >Uppdatera</button>

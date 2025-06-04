@@ -18,7 +18,7 @@ const GetPortfolio = () => {
 
     const getProjects = async () => {
         try {
-            const response = await fetch("http://localhost:3000/portfolio", {
+            const response = await fetch("https://din-oas-api.onrender.com/portfolio", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const GetPortfolio = () => {
 
                         <div className="projectImg">
                             {project.project_picture && (
-                                <img src={`http://localhost:3000${project.project_picture}`} alt="projektbild" />
+                                <img src={`https://din-oas-api.onrender.com${project.project_picture}`} alt="projektbild" />
                             )}
                         </div>
                     </article>

@@ -22,7 +22,7 @@ function NewsSingle() {
   const getSingleNews = async () => {
 
     try {
-      const response = await fetch("http://localhost:3000/news/" + id, {
+      const response = await fetch("https://din-oas-api.onrender.com/news/" + id, {
         method: "GET"
       }); 
 
@@ -54,7 +54,7 @@ function NewsSingle() {
           <div id="singleImgContainer">
             {
               newsInfo.news_picture ? (
-                <img src={`http://localhost:3000${newsInfo.news_picture}`} alt="nyhetsbild"/>
+                <img src={`https://din-oas-api.onrender.com${newsInfo.news_picture}`} alt="nyhetsbild"/>
               ) : (
                 <img src={placeholder} alt="placeholder" />
               )

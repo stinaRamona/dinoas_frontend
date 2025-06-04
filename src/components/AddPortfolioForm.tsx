@@ -41,7 +41,7 @@ const AddPortfolioForm = ({onProjectAdded} : {onProjectAdded: () => void}) => {
 
         //lägga till nytt project
         try {
-            const response = await fetch("http://localhost:3000/portfolio", {
+            const response = await fetch("https://din-oas-api.onrender.com/portfolio", {
                 method: "POST", 
                 body: projectBody,
             }); 

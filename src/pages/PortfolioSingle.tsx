@@ -19,7 +19,7 @@ const PortfolioSingle = () => {
     const getSingleProject = async () => {
     
         try {
-          const response = await fetch("http://localhost:3000/portfolio/" + id, {
+          const response = await fetch("https://din-oas-api.onrender.com/portfolio/" + id, {
             method: "GET"
           }); 
     
@@ -51,7 +51,7 @@ const PortfolioSingle = () => {
             <div id="#singleImgContainer">
               {
                 portfolioInfo.project_picture ? (
-                    <img src={`http://localhost:3000${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
+                    <img src={`https://din-oas-api.onrender.com${portfolioInfo.project_picture}`} alt="nyhetsbild"/>
                 ) : (
                     <img src={placeholder} alt="placeholder" />
                 )

@@ -16,9 +16,9 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
     }
 
     //hooks
-    const {data: services, loading} = fetchData(`http://localhost:3000/service?refreshKey=${refreshKey}`);
-    const deleteService = useDelete("http://localhost:3000/service");
-    const updateService = useUpdate("http://localhost:3000/service");
+    const {data: services, loading} = fetchData(`https://din-oas-api.onrender.com/service?refreshKey=${refreshKey}`);
+    const deleteService = useDelete("https://din-oas-api.onrender.com/service");
+    const updateService = useUpdate("https://din-oas-api.onrender.com/service");
 
     //states
     const [selectedService, setSelectedService] = useState<Service | null>(null); 
@@ -87,7 +87,7 @@ const HandleServices = ({refreshKey, refreshItemList} : {refreshKey : number; re
                     <h4>{item.service_name}</h4>
                     <p>{item.service_description}</p>
                     {item.service_picture && (
-                        <img src={`http://localhost:3000${item.service_picture}`} alt="Tjänstbild" />
+                        <img src={`https://din-oas-api.onrender.com${item.service_picture}`} alt="Tjänstbild" />
                     )}
                     <button id="deleteBtn" onClick={() => handleDelete(item._id)}>Ta bort</button>
                     <button id="updateBtn" onClick={() => handleUpdateBtnClick(item)}>Uppdatera</button>

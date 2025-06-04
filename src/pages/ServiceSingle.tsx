@@ -18,7 +18,7 @@ const ServiceSingle = () => {
     
     const getSingleService = async () => {
         try {
-          const response = await fetch("http://localhost:3000/service/" + id, {
+          const response = await fetch("https://din-oas-api.onrender.com/service/" + id, {
             method: "GET"
           }); 
     
@@ -51,7 +51,7 @@ const ServiceSingle = () => {
         <div id="singleImgContainer">
             {
               serviceInfo.service_picture ? (
-                <img src={`http://localhost:3000${serviceInfo.service_picture}`} alt="nyhetsbild"/>
+                <img src={`https://din-oas-api.onrender.com${serviceInfo.service_picture}`} alt="nyhetsbild"/>
               ) : (
                 <img src={placeholder} alt="placeholder" />
               )

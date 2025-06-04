@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/loginuser", {
+            const response = await fetch("https://din-oas-api.onrender.com/loginuser", {
                 method: "POST", 
                 headers: {
                     "Content-Type": "application/json"
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         
         //Om token finns, validera den mot servern
         try {
-            const response = await fetch("http://localhost:3000/protected", {
+            const response = await fetch("https://din-oas-api.onrender.com/protected", {
                 method: "GET", 
                 headers: {
                     "Content-type": "application/json", 

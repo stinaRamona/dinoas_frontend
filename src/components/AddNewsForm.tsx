@@ -51,7 +51,7 @@ const AddNewsForm = ({onNewsAdded} : {onNewsAdded: () => void}) => {
         
         //posta nyhet
         try {
-            const response = await fetch("http://localhost:3000/news", {
+            const response = await fetch("https://din-oas-api.onrender.com/news", {
                 method: "POST", 
                 body: newsBody,
             });
